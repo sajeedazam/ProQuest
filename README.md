@@ -14,7 +14,7 @@
   - **Signup for customers, and professionals**
   - **Customer Side : (Includes Bookings, Cancelling Bookings, Payment (Online))**
   - **Professional Side: (Accepted Jobs, Rejected Jobs)**
-  - **Database to hold Customer nd Professional Data**
+  - **Database to hold Customer and Professional Data**
 
 - **Standard Requirments** 
   - **Ratings for the professional**
