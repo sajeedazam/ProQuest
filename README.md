@@ -85,4 +85,6 @@
   - **5.4 Create functions for inserting, updating, and retrieving data**
   - **5.5 Regularly backup and maintain the database to ensure data integrity and performance.**
 
+Prototype Sketches
+![prototype-sketches-1](https://github.com/sajeedazam/ProQuest/blob/main/initialDesigns/prototype-sketches-1.jpg)
 
