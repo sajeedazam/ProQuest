@@ -1,11 +1,10 @@
 import React from 'react';
-import './About.css';
+import '../About/about.css';
 
 function About() {
-  return (
-    <div className="about">
-      <h2>About Our Services</h2>
-      <p>Our mission is to provide top-quality services from professionals in your local area. From haircuts to home repairs, we've got you covered!</p>
+  return ( <div className="aboutContainer">
+      <h1>About Us</h1>
+      <p>Our platform connects customers with a wide range of professional services. Whether you need a haircut, a manicure, an electrician, or a pedicure, we've got you covered. Our mission is to make finding and booking professional services as easy as possible. We are committed to offering a seamless, reliable, and convenient experience for all of our users.</p>
     </div>
   );
 }
