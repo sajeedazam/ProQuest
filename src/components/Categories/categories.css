@@ -1,0 +1,39 @@
+.categoriesContainer {
+  background-color: cadetblue;
+  padding: 20px;
+  text-align: center;
+}
+
+.categoriesContainer h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  width: 200px;
+  transition: transform .2s;
+  background-color: #fff;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.2);
+}
+
+.categoryImage {
+  width: 100%;
+  height: 150px; /* Fix the height of the image */
+  object-fit: cover; /* This will make sure the image is resized in a way that it does not break the aspect ratio */
+  border-radius: 8px 8px 0 0;
+}
+
+.card h3 {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}
