@@ -18,12 +18,12 @@ const JobsList = ({ jobs }) => {
 // Main component
 const ProfessionalHomescreen = () => {
   const [showJobs, setShowJobs] = useState(false);
-  const jobs = ['Job 1', 'Job 2']; // Replace this with real data
+  const jobs = ['Completed', 'Accepted']; // Replace this with real data
 
   const container = React.createElement('div', {className: 'container'}, 
     React.createElement('h1', {className: 'title'}, 'Logged in as a professional'),
     React.createElement('h2', {className: 'info'}, 'Professional Name: John Doe'),
-    React.createElement('h2', {className: 'info'}, 'Location of the Professional: New York, USA'),
+    React.createElement('h2', {className: 'info'}, 'Location of the Professional: Vancouver, Canada'),
     React.createElement('button', {className: 'button', onClick: () => setShowJobs(!showJobs)}, 'Jobs'),
     React.createElement('h2', {className: 'info'}, 'Amount earned: $5000'),
     React.createElement('h2', {className: 'info'}, 'Timings: 9AM - 5PM'),
