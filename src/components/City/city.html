@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapTiler Geocoder component</title>
+  <script src="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.umd.min.js"></script>
+  <link href="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.css" rel="stylesheet" />
+  <script src="https://unpkg.com/@maptiler/geocoding-control@latest/maptilersdk.umd.js"></script>
+  <link href="https://unpkg.com/@maptiler/geocoding-control@latest/style.css" rel="stylesheet">
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+      maptilersdk.config.apiKey = 'KonYlx229gKyW20KEaw4';
+      const map = new maptilersdk.Map({
+        container: 'map', // container's id or the HTML element to render the map
+        style: maptilersdk.MapStyle.STREETS,
+        center: [16.62662018, 49.2125578], // starting position [lng, lat]
+        zoom: 14, // starting zoom
+      });
+      const gc = new maptilersdkMaptilerGeocoder.GeocodingControl({
+        apiKey: maptilersdk.config.apiKey,
+        class: 'geocoder',
+        showResultsWhileTyping: true,
+      });
+      map.addControl(gc, 'top-left');
+  </script>
+</body>
+</html>
