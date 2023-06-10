@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login/login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Categories from './components/Categories/categories';
-//import About from './components/About/about';
+import About from './components/About/about';
  import ProfessionalHomescreen from './components/pHomepage/phomepage.js'
+ import City from './components/City/city';
 
 
 
@@ -13,6 +13,10 @@ import Categories from './components/Categories/categories';
 function App() {
   return (
     <div className="App">
+      <Login />
+      <City />
+      <Categories />
+      <About />
       <ProfessionalHomescreen/>
     </div>
   );
