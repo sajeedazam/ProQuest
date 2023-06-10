@@ -21,6 +21,7 @@ function App() {
       <City />
       <Categories />
       <About />
+      <ProfessionalHomescreen/>
     </div>
   );
 }
