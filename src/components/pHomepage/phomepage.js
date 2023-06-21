@@ -18,7 +18,7 @@ const JobsList = ({ jobs }) => {
 // Main component
 const ProfessionalHomescreen = () => {
   const [showJobs, setShowJobs] = useState(false);
-  const jobs = ['Completed', 'Accepted']; // Replace this with real data
+  const jobs = ['Completed', 'Accepted'];
 
   const container = React.createElement('div', {className: 'container'}, 
     React.createElement('h1', {className: 'title'}, 'Logged in as a professional'),

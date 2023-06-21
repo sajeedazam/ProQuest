@@ -7,6 +7,7 @@ import About from './components/About/about';
 import City from './components/City/city';
 import SignupPage from './components/SignUp/signUp';
 import ProfessionalHomescreen from './components/pHomepage/phomepage.js'
+import AuthDetails from './auth/AuthDetails';
 
 
 
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
       <Login />
       <SignupPage />
+      <AuthDetails />
       <City />
       <Categories />
       <About />
