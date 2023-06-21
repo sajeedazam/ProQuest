@@ -8,24 +8,24 @@ import City from './components/City/city';
 import SignupPage from './components/SignUp/signUp';
 import ProfessionalHomescreen from './components/pHomepage/phomepage.js'
 import AuthDetails from './auth/AuthDetails';
-
-
-
-
- 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './components/Dashbord/Dashbord';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-      <SignupPage />
-      <AuthDetails />
-      <City />
-      <Categories />
-      <About />
-      <ProfessionalHomescreen/>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signUp" element={<SignupPage />} />
+          <Route path="/auth" element={<AuthDetails />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/professional" element={<ProfessionalHomescreen />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
