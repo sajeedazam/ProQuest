@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+.homepage {
+  height: 100vh;
+  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  -webkit-animation: slidein 100s;
+  animation: slidein 100s;
+
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes slidein {
+  from {
+      background-position: top; 
+      background-size: cover;
+  }
+  to {
+      background-position: -100px 0px;
+      background-size: cover;
+  }
+}
+
+@keyframes slidein {
+  from {
+      background-position: top;
+      background-size: cover;
+  }
+  to {
+      background-position: -100px 0px;
+      background-size: cover;
+  }
+}
+
+.homepage .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(75, 75, 250, 0.3);
+    border-radius: 3px;
+}
+
+.homepage .center h1 {
+    text-align: center;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+}
+
+.homepage .ant-btn {
+  color: #FFF; /* Make the button text white */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  text-decoration: none; /* Remove underline from Link */
+  display: inline-block; /* Required for adding some padding */
+  transition: transform 0.3s ease-in-out; /* Smooth transform transition */
+}
+
+.homepage .ant-btn:hover {
+  transform: scale(1.1); /* Scale up when hovered */
+}
+
+.homepage .btn-customer {
+  margin-right: 20px; /* Add some right margin to separate the buttons */
+}
+
+.homepage .btn-professional {
+  margin-left: 20px; /* Add some left margin to separate the buttons */
+}
