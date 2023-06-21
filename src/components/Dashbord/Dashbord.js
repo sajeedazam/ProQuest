@@ -4,7 +4,7 @@ import About from '../About/about';
 import City from '../City/city';
 import NavBar from '../Navbar/Navbar';
 import { useEffect, useState } from "react";
-import { auth } from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/components/firebase.js";
+import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
 function Dashboard() {

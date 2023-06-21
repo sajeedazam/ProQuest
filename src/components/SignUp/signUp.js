@@ -106,7 +106,7 @@
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/components/firebase.js";
+import { auth } from '../firebase';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");

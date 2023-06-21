@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import '/Users/rahul/Desktop/cpsc455group/ProQuest/src/components/HomePage/HomePage.css';
+import './HomePage.css';
 
 const HomePage = () => {
   return (

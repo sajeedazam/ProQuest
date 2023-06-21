@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import "./LoginProfessional.css";
 import logo from "../../urbancompanylogo.jpg";
 import {useState} from "react"
-import {auth} from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/components/firebase.js"
+import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import SignUp from "../SignUp/signUp";

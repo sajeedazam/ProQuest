@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from 'react-router-dom';
-import { auth } from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/components/firebase.js";
+import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import SignUp from "../SignUp/signUp";
 
