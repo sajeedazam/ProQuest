@@ -5,10 +5,15 @@ import "./login.css";
 import logo from "../../urbancompanylogo.jpg";
 import {useState} from "react"
 import {auth} from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/components/firebase.js"
+import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
+import SignUp from "../SignUp/signUp";
+import { useNavigate } from "react-router-dom";
 
 // export default function Login () {
 const Login = () => {
+
+    const navigate = useNavigate();
     const[email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,6 +23,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             console.log(userCredential);
+            navigate('/dashboard');;
           })
           .catch((error) => {
             console.log(error);
@@ -45,7 +51,8 @@ const Login = () => {
                                 Submit
                             </button>
                         </form>
-                        <a href="" className='mt-3'>Create an account</a>
+                        <Link to="/signUp" className='mt-3'>Create an account</Link>
+                        {/* <a href="" className='mt-3'>Create an account</a> */}
                     </div>
                     <div className="right_data mt-5" style={{ width: "100%" }}>
                         <div className="sign_img mt-5">
