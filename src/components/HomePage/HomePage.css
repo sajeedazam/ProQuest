@@ -1,41 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 .homepage {
-  height: 100vh;
-  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
-  -webkit-animation: slidein 100s;
-  animation: slidein 100s;
+    height: 100vh;
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+    -webkit-animation: slidein 100s;
+    animation: slidein 100s;
 
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
 }
 
 @-webkit-keyframes slidein {
-  from {
-      background-position: top; 
-      background-size: cover;
-  }
-  to {
-      background-position: -100px 0px;
-      background-size: cover;
-  }
+    from {
+        background-position: top; 
+        background-size: cover;
+    }
+    to {
+        background-position: -100px 0px;
+        background-size: cover;
+    }
 }
 
 @keyframes slidein {
-  from {
-      background-position: top;
-      background-size: cover;
-  }
-  to {
-      background-position: -100px 0px;
-      background-size: cover;
-  }
+    from {
+        background-position: top;
+        background-size: cover;
+    }
+    to {
+        background-position: -100px 0px;
+        background-size: cover;
+    }
 }
 
 .homepage .center {
@@ -58,6 +58,7 @@
     font-family: 'Source Code Pro', monospace;
     text-transform: uppercase;
 }
+
 
 .homepage .ant-btn {
   color: #FFF; /* Make the button text white */

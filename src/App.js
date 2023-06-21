@@ -11,7 +11,7 @@ import AuthDetails from './auth/AuthDetails';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashbord/Dashbord';
 import HomePage from './components/HomePage/HomePage';
-import LoginProfessional from './components/LoginProfessional/LoginProfessional';
+import LoginProfessional from './components/Login-Professional/LoginProfessional';
 
 
 function App() {
