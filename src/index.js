@@ -6,13 +6,22 @@ import App from './App';
 import Categories from './components/Categories/categories';
 import About from './components/About/about';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+// import jobReducer from './redux/reducer/jobReducer';
+// import userReducer from './redux/reducer/userReducer';
+import store from './redux/store';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     {/* <Categories />
     <About /> */}
     <App/>
+    </Provider>
   </React.StrictMode>
 );
 

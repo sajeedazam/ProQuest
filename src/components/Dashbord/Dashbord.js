@@ -6,6 +6,9 @@ import NavBar from '../Navbar/Navbar';
 import { useEffect, useState } from "react";
 import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { connect } from 'react-redux';
+
+
 
 function Dashboard() {
   const [user, setUser] = useState(null);
