@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import SignUp from "../SignUp/signUp";
+import { connect } from 'react-redux';
+import {clearUser} from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/redux/userActions.js"
 
-function NavBar({user}) {
+function NavBar({user, clearUser}) {
 
     const logout = () => {
         signOut(auth)
@@ -16,14 +18,26 @@ function NavBar({user}) {
         .catch((error) => {
             console.log(error);
         });
+        clearUser()
     }
 
     return (
         <nav>
-            <div>Signed in as: {user.displayName}</div>
+            <div>Signed in as: {user ? user.displayName : 'Guest'}</div>
             <Link to="/" onClick={logout}>Logout</Link>
         </nav>
     )
 }
 
-export default NavBar;
+
+const mapStateToProps = state => ({
+    user: state.user,
+});
+
+const mapDispatchToProps = dispatch => ({
+    clearUser: () => dispatch(clearUser()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+
+// export default NavBar;
