@@ -6,7 +6,7 @@ import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import SignUp from "../SignUp/signUp";
 import { connect } from 'react-redux';
-import {clearUser} from "/Users/rahul/Desktop/cpsc455group/ProQuest/src/redux/userActions.js"
+import { clearUser } from "../../redux/userActions";
 
 function NavBar({user, clearUser}) {
 
