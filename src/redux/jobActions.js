@@ -1,17 +1,23 @@
-//jobActions.js
-export const ADD_JOB = 'ADD_JOB';
-export const REMOVE_JOB = 'REMOVE_JOB';
+export const ACCEPT_JOB = 'ACCEPT_JOB';
+export const REJECT_JOB = 'REJECT_JOB';
+export const CLEAR_JOBS = 'CLEAR_JOBS';
 
-export function addJob(job) {
+export function acceptJob(job) {
   return {
-    type: ADD_JOB,
+    type: ACCEPT_JOB,
     payload: job
   }
 }
 
-export function removeJob(jobId) {
+export function rejectJob(job) {
   return {
-    type: REMOVE_JOB,
-    payload: jobId
+    type: REJECT_JOB,
+    payload: job
+  }
+}
+
+export function clearJobs() {
+  return {
+    type: CLEAR_JOBS
   }
 }

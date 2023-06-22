@@ -1,14 +1,28 @@
-import { ADD_JOB } from "./jobActions";
-import { REMOVE_JOB } from "./jobActions";
+import { ADD_JOB, REMOVE_JOB, ACCEPT_JOB, REJECT_JOB, CLEAR_JOBS } from "./jobActions";
 
-const initialState = []; // default jobs list is empty
+const initialState = { 
+  acceptedJobs: [],
+  rejectedJobs: []
+}; 
 
 export default function jobReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_JOB:
-      return [...state, action.payload];
-    case REMOVE_JOB:
-      return state.filter(job => job.id !== action.payload);
+    case ACCEPT_JOB:
+      return {
+        ...state,
+        acceptedJobs: [...state.acceptedJobs, action.payload]
+      };
+    case REJECT_JOB:
+      return {
+        ...state,
+        rejectedJobs: [...state.rejectedJobs, action.payload]
+      };
+    case CLEAR_JOBS:
+      return {
+        ...state,
+        acceptedJobs: [],
+        rejectedJobs: []
+      };
     default:
       return state;
   }

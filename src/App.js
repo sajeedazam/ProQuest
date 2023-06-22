@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Categories from './components/Categories/categories';
 import About from './components/About/about';
 import City from './components/City/city';
+import JobsList from './components/Jobs/jobsList';
 import SignupPage from './components/SignUp/signUp';
 import ProfessionalHomescreen from './components/pHomepage/phomepage.js'
 import AuthDetails from './auth/AuthDetails';
@@ -23,6 +24,7 @@ function App() {
       <div className="App">
         <Routes>
         <Route path="/" element={<HomePage />} />
+          <Route path="/jobs" element={<JobsList />} />
           <Route path="/login-customer" element={<Login />} />
           <Route path="/login-professional" element={<LoginProfessional />} />
           <Route path="/signUp" element={<SignupPage />} />
