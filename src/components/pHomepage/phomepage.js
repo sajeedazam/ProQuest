@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './phomepage.css';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 //import About from './components/About/about.js';
 
 
@@ -58,7 +59,7 @@ import { connect } from 'react-redux';
 
 function ProfessionalHomescreen() {
   const [showJobs, setShowJobs] = useState(false);
-  const acceptedJobs = useSelector((state) => state.jobs.acceptedJobs);
+  const acceptedJobs = useSelector(state => state.jobs.acceptedJobs);
   const rejectedJobs = useSelector((state) => state.jobs.rejectedJobs);
   
 
@@ -74,19 +75,23 @@ function ProfessionalHomescreen() {
       <button className="button" onClick={toggleJobs}>
         {showJobs ? "Hide Jobs" : "Show Jobs"}
       </button>
+      {/* <button className="notifications" onClick={}>
+        Notifications
+      </button> */}
+      <Link to="/jobs" className='mt-3'>Notifications</Link>
       <h2 className="info">Amount earned: $5000</h2>
       <h2 className="info">Timings: 9AM - 5PM</h2>
 
       {showJobs && (
         <div className="jobs-container">
           <h2>Accepted Jobs:</h2>
+          {console.log(acceptedJobs.length)}
           {acceptedJobs.length > 0 ? (
             <ul>
               {acceptedJobs.map((job) => 
               <li key={job.id}>
                 <p>{job.name}</p>
               </li>)}
-              {console.log(acceptedJobs.length)}
             </ul>         
           ) : (
             <p>No accepted jobs</p>
