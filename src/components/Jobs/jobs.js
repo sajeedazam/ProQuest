@@ -7,9 +7,9 @@ import '../Jobs/jobs.css';
 function Jobs({ jobs }) {
     const dispatch = useDispatch();
   
-    const handleAcceptJob = (e) => {
-      const newJob = { name: 'Hair cut3', id: '5' };
-      dispatch(acceptJob());
+    const handleAcceptJob = (job) => {
+      // const newJob = { name: 'Hair cut3', id: '5' };
+      dispatch(acceptJob(job));
     };
   
     const handleRejectJob = (job) => {
@@ -22,10 +22,10 @@ function Jobs({ jobs }) {
   
     return (
       <ul className="jobs-container"> 
-        {jobs.map((job) => (
-          <div key={job.id} className="job-card">
+        {jobs.map((job, index) => (
+          <div key={index} className="job-card">
             <h2>{job.name}</h2>
-            <button onClick={handleAcceptJob}>Accept</button>
+            <button onClick={() => handleAcceptJob(job)}>Accept</button>
             <button onClick={() => handleRejectJob(job)}>Reject</button>
           </div>
             // <li key={index}>

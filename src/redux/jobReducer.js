@@ -1,12 +1,13 @@
 // import { ADD_JOB, REMOVE_JOB, ACCEPT_JOB, REJECT_JOB, CLEAR_JOBS } from "./jobActions";
 import {createSlice} from '@reduxjs/toolkit';
-const initialState = { 
+let initialState = { 
   acceptedJobs: [
     { name: 'Hair cut2', id: '4' },
   ],
   rejectedJobs: [
     {name: 'Buzz', id : '5'},
-  ]
+    {name: 'Buzz', id : '6'}
+  ],
 }; 
 
 // const jobReducer = (state = initialState, action) => {
@@ -38,11 +39,18 @@ const jobReducer = createSlice({
   initialState: initialState,
   reducers: {
     acceptJob: (state, action) => {
-      const newJob = { name: 'Hair cut23', id: '45' };
-      state.acceptedJobs.push(newJob);
+      // const newJob = { name: 'Hair cut23', id: '45' };
+      const job = action.payload;
+      state.acceptedJobs.push(job);
+      console.log(job);
+      console.log("here");
+      console.log(state.acceptedJobs.length);
+      console.log("abc " + Object.values(state.acceptedJobs[0]));
+      // state.acceptedJobs  = [...state.acceptedJobs, newJob];
     },
     rejectJob: (state, action) => {
       state.rejectedJobs.push(action.payload);
+      console.log("reject");
     },
   }
 });

@@ -56,8 +56,10 @@ import { useSelector } from 'react-redux';
 //  import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-function ProfessionalHomescreen({ acceptedJobs, rejectedJobs }) {
+function ProfessionalHomescreen() {
   const [showJobs, setShowJobs] = useState(false);
+  const acceptedJobs = useSelector((state) => state.jobs.acceptedJobs);
+  const rejectedJobs = useSelector((state) => state.jobs.rejectedJobs);
   
 
   const toggleJobs = () => {
@@ -80,10 +82,11 @@ function ProfessionalHomescreen({ acceptedJobs, rejectedJobs }) {
           <h2>Accepted Jobs:</h2>
           {acceptedJobs.length > 0 ? (
             <ul>
-              {acceptedJobs.map((job, index) => 
-              <li key={index}>
-                <h7>{job.name}</h7>
+              {acceptedJobs.map((job) => 
+              <li key={job.id}>
+                <p>{job.name}</p>
               </li>)}
+              {console.log(acceptedJobs.length)}
             </ul>         
           ) : (
             <p>No accepted jobs</p>
@@ -101,9 +104,10 @@ function ProfessionalHomescreen({ acceptedJobs, rejectedJobs }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  acceptedJobs: state.jobs.acceptedJobs,
-  rejectedJobs: state.jobs.rejectedJobs,
-});
+// const mapStateToProps = (state) => ({
+//   acceptedJobs: state.jobs.acceptedJobs,
+//   rejectedJobs: state.jobs.rejectedJobs,
+// });
 
-export default connect(mapStateToProps)(ProfessionalHomescreen);
+// export default connect(mapStateToProps)(ProfessionalHomescreen);
+export default ProfessionalHomescreen;
