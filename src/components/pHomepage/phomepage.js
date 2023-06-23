@@ -69,30 +69,26 @@ function ProfessionalHomescreen() {
 
   return (
     <div className="container">
+      <Link to="/jobs" className='mt-3'>Notifications</Link>
       <h1 className="title">Logged in as a professional</h1>
       <h2 className="info">Professional Name: John Doe</h2>
       <h2 className="info">Location of the Professional: Vancouver, Canada</h2>
       <button className="button" onClick={toggleJobs}>
         {showJobs ? "Hide Jobs" : "Show Jobs"}
       </button>
-      {/* <button className="notifications" onClick={}>
-        Notifications
-      </button> */}
-      <Link to="/jobs" className='mt-3'>Notifications</Link>
+      
       <h2 className="info">Amount earned: $5000</h2>
       <h2 className="info">Timings: 9AM - 5PM</h2>
 
       {showJobs && (
         <div className="jobs-container">
           <h2>Accepted Jobs:</h2>
-          {console.log(acceptedJobs.length)}
-          {acceptedJobs.length > 0 ? (
-            <ul>
-              {acceptedJobs.map((job) => 
-              <li key={job.id}>
-                <p>{job.name}</p>
-              </li>)}
-            </ul>         
+          {acceptedJobs.length > 0 ? (   
+              acceptedJobs.map((job) => 
+              <p key={job.id}>
+                {job.name}
+              </p>)
+                   
           ) : (
             <p>No accepted jobs</p>
           )}
