@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './phomepage.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { clearJobs } from '../../redux/jobReducer';
 //import About from './components/About/about.js';
 
 
@@ -59,12 +60,17 @@ import { connect } from 'react-redux';
 
 function ProfessionalHomescreen() {
   const [showJobs, setShowJobs] = useState(false);
+  const dispatch = useDispatch();
   const acceptedJobs = useSelector(state => state.jobs.acceptedJobs);
   const rejectedJobs = useSelector((state) => state.jobs.rejectedJobs);
-  
+
 
   const toggleJobs = () => {
     setShowJobs(!showJobs);
+  };
+
+  const handleClearJobs = () => {
+    dispatch(clearJobs());
   };
 
   return (
@@ -76,19 +82,19 @@ function ProfessionalHomescreen() {
       <button className="button" onClick={toggleJobs}>
         {showJobs ? "Hide Jobs" : "Show Jobs"}
       </button>
-      
+
       <h2 className="info">Amount earned: $5000</h2>
       <h2 className="info">Timings: 9AM - 5PM</h2>
 
       {showJobs && (
         <div className="jobs-container">
           <h2>Accepted Jobs:</h2>
-          {acceptedJobs.length > 0 ? (   
-              acceptedJobs.map((job) => 
+          {acceptedJobs.length > 0 ? (
+            acceptedJobs.map((job) =>
               <p key={job.id}>
                 {job.name}
               </p>)
-                   
+
           ) : (
             <p>No accepted jobs</p>
           )}
@@ -99,6 +105,7 @@ function ProfessionalHomescreen() {
           ) : (
             <p>No rejected jobs</p>
           )}
+          <button className="button" onClick={handleClearJobs}>Clear History</button>
         </div>
       )}
     </div>

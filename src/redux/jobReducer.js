@@ -4,9 +4,11 @@ const { v4: uuid } = require('uuid');
 
 let initialState = { 
   acceptedJobs: [
-    { id: uuid(), name: 'Hair cut2'},
+    { id: uuid(), name: 'Haircut'},
   ],
-  rejectedJobs: [],
+  rejectedJobs: [
+    { id: uuid(), name: 'Plumbing'},
+  ],
 }; 
 
 const jobReducer = createSlice({
@@ -20,8 +22,12 @@ const jobReducer = createSlice({
     rejectJob: (state, action) => {
       state.rejectedJobs.push(action.payload);
     },
+    clearJobs: (state) => {
+      state.acceptedJobs = [];
+      state.rejectedJobs = [];
+    },
   }
 });
 
-export const {acceptJob, rejectJob} = jobReducer.actions;
+export const {acceptJob, rejectJob, clearJobs} = jobReducer.actions;
 export default jobReducer.reducer;
