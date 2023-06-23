@@ -107,6 +107,7 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from '../firebase';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -161,6 +162,7 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <button type="submit">Sign Up</button>
+        <Link to="/login-customer" className='mt-3'>Login</Link>
       </form>
       {message && <p>{message}</p>}
     </div>

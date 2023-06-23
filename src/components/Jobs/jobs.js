@@ -1,13 +1,15 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { acceptJob, rejectJob } from '../../redux/jobActions.js';
+// import { acceptJob, rejectJob } from '../../redux/jobActions.js';
+import { acceptJob, rejectJob } from '../../redux/jobReducer';
 import '../Jobs/jobs.css';
 
 function Jobs({ jobs }) {
     const dispatch = useDispatch();
   
-    const handleAcceptJob = (job) => {
-      dispatch(acceptJob(job));
+    const handleAcceptJob = (e) => {
+      const newJob = { name: 'Hair cut3', id: '5' };
+      dispatch(acceptJob());
     };
   
     const handleRejectJob = (job) => {
@@ -19,15 +21,18 @@ function Jobs({ jobs }) {
     }
   
     return (
-      <div className="jobs-container">
+      <ul className="jobs-container"> 
         {jobs.map((job) => (
           <div key={job.id} className="job-card">
             <h2>{job.name}</h2>
-            <button onClick={() => handleAcceptJob(job)}>Accept</button>
+            <button onClick={handleAcceptJob}>Accept</button>
             <button onClick={() => handleRejectJob(job)}>Reject</button>
           </div>
+            // <li key={index}>
+            //   <h3>{job.name}</h3>
+            // </li>
         ))}
-      </div>
+      </ul>
     );
   }
   

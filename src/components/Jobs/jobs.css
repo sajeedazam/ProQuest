@@ -28,9 +28,11 @@
     padding: 5px 15px;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     margin-right: 5px;
+    background-color: #007BFF;
+    margin-bottom: 5px;
   }
   
   .job-card button:first-child {
