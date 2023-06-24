@@ -3,7 +3,7 @@ import Jobs from '../Jobs/jobs.js';
 
 function JobsList() {
   const jobs = [
-    { name: 'Hair cut' },
+    { name: 'Haircut' },
     { name: 'SPA'},
     { name: 'Pedicure'}
   ];

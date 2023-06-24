@@ -1,8 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 const { v4: uuid } = require('uuid');
 
-
-let initialState = { 
+const initialState = { 
   acceptedJobs: [
     { id: uuid(), name: 'Haircut'},
   ],
