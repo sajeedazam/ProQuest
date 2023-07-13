@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { acceptJob, rejectJob } from '../../redux/jobReducer';
+import { acceptJob, rejectJob } from '../../redux/notifications/reducer';
 import { Link } from 'react-router-dom';
 import '../Jobs/jobs.css';
 

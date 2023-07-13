@@ -22,10 +22,10 @@ function Dashboard() {
 
   return user ? (
     <div>
-      <NavBar user={user} />
-      <About />
+      <NavBar user={user} />    
       <City />
       <Categories />
+      <About />
     </div>
   ) : (
     <div>Loading...</div>  

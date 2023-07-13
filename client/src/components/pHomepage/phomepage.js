@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './phomepage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { clearJobs } from '../../redux/jobReducer';
+import { clearJobs } from '../../redux/notifications/reducer';
 // import About from './components/About/about.js';
 
 
