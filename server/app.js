@@ -1,44 +1,13 @@
-// var express = require('express');
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
-// var logger = require('morgan');
-
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-
-// var app = express();
-
-// app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-
-// module.exports = app;
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mongoose = require('mongoose');
-const cors = require('cors');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-// Define the Job model here
-const Job = require('/Users/rahul/Desktop/cpsc455group/ProQuest/server/models/Job.js');
+var jobsRouter = require('./routes/jobList');
 
 var app = express();
-
-mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.r8nnfsp.mongodb.net/?retryWrites=true&w=majority', { 
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('MongoDB Connected...'))
-  .catch((err) => console.log(err));
 
 app.use(cors());
 app.use(logger('dev'));
@@ -87,6 +56,28 @@ app.put('/jobs/:id', async (req, res) => {
   }
 });
 
+// app.post('/job/accept', async (req, res) => {
+//   const { jobId } = req.body;
+  
+//   try {
+//     await Job.deleteOne({ id: jobId });
+//     res.status(200).send({ success: 'Job accepted and removed from database' });
+//   } catch (error) {
+//     res.status(500).send({ error: 'An error occurred' });
+//   }
+// });
+
+// app.post('/job/reject', async (req, res) => {
+//   const { jobId } = req.body;
+  
+//   try {
+//     await Job.deleteOne({ id: jobId });
+//     res.status(200).send({ success: 'Job rejected and removed from database' });
+//   } catch (error) {
+//     res.status(500).send({ error: 'An error occurred' });
+//   }
+// });
+
 // DELETE endpoint to delete a job
 app.delete('/jobs/:id', async (req, res) => {
   try {
@@ -99,7 +90,7 @@ app.delete('/jobs/:id', async (req, res) => {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/job-list', jobsRouter);
 
 module.exports = app;
 
