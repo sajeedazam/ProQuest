@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+
 var indexRouter = require('./routes/index');
 var jobsRouter = require('./routes/jobList');
 
@@ -56,27 +57,7 @@ app.put('/jobs/:id', async (req, res) => {
   }
 });
 
-// app.post('/job/accept', async (req, res) => {
-//   const { jobId } = req.body;
-  
-//   try {
-//     await Job.deleteOne({ id: jobId });
-//     res.status(200).send({ success: 'Job accepted and removed from database' });
-//   } catch (error) {
-//     res.status(500).send({ error: 'An error occurred' });
-//   }
-// });
 
-// app.post('/job/reject', async (req, res) => {
-//   const { jobId } = req.body;
-  
-//   try {
-//     await Job.deleteOne({ id: jobId });
-//     res.status(200).send({ success: 'Job rejected and removed from database' });
-//   } catch (error) {
-//     res.status(500).send({ error: 'An error occurred' });
-//   }
-// });
 
 // DELETE endpoint to delete a job
 app.delete('/jobs/:id', async (req, res) => {
@@ -89,8 +70,8 @@ app.delete('/jobs/:id', async (req, res) => {
   }
 });
 
-app.use('/', indexRouter);
-app.use('/job-list', jobsRouter);
+app.use('/', jobsRouter);
+// app.use('/job-list', jobsRouter);
 
 module.exports = app;
 
