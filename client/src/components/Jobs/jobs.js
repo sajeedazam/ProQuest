@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { acceptJob, rejectJob } from '../../redux/jobReducer';
+import { acceptJob, clearJobs, rejectJob } from '../../redux/notifications/reducer';
 import { Link } from 'react-router-dom';
 import '../Jobs/jobs.css';
 
 function Jobs({ jobs }) {
     const dispatch = useDispatch();
+
+    if (!jobs || !Array.isArray(jobs)) {
+      return <h2>No jobs available</h2>;
+    }
+
     const [localJobs, setLocalJobs] = useState(jobs);
 
     const handleAcceptJob = (job) => {
@@ -18,10 +23,6 @@ function Jobs({ jobs }) {
       dispatch(rejectJob(job));
       setLocalJobs(localJobs.filter(j => j.name !== job.name));
     };
-  
-    if (!jobs || !Array.isArray(jobs)) {
-      return <h2>No jobs available</h2>;
-    }
   
     return (
       <div >

@@ -1,12 +1,18 @@
 import { createStore, combineReducers } from 'redux';
 import userReducer from './userReducer';
-import jobReducer from './jobReducer';
+import jobReducer from './notifications/reducer';
+import { configureStore } from '@reduxjs/toolkit';
 
-const rootReducer = combineReducers({
-  user: userReducer,
-  jobs: jobReducer
+// const rootReducer = combineReducers({
+//   user: userReducer,
+//   jobs: jobReducer
+// });
+
+// const store = createStore(rootReducer);
+
+const store = configureStore({
+  reducer: {jobs: jobReducer},
+  devTools: true
 });
-
-const store = createStore(rootReducer);
 
 export default store;
