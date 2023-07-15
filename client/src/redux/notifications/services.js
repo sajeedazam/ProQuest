@@ -7,6 +7,15 @@ const getJobs = async () => {
     return res.json();
 };
 
+const getNotifs = async () => {
+    const res = await fetch('http://localhost:5001/job-list',
+        {
+            method: 'GET'
+        });
+
+    return res.json();
+};
+
 const addJobs = async ( category, name, time, customerName, phone ) => {
     const response = await fetch('http://localhost:5001/cart-list', {
         method: 'POST',
@@ -39,10 +48,28 @@ const deleteJobs = async (itemId) => {
   
     return data;
   }
+
+  const transferData = async () => {
+    try {
+      const response = await fetch('http://localhost:5001/transfer-data', {
+        method: 'POST',
+      });
+  
+      if (!response.ok) {
+        throw new Error('Transfer data failed');
+      }
+  
+      return response.json();
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }; 
   
 
 export default {
     getJobs, 
     addJobs,
-    deleteJobs
+    deleteJobs,
+     transferData,
+     getNotifs
 }

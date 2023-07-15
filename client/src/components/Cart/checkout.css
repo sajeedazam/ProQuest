@@ -1,17 +1,23 @@
-.ant-btn.button {
-    font-size: 1em;
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .checkout-button {
+    font-size: 1.2em;
     color: #ffffff;
+    padding: 10px 30px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     background: linear-gradient(93deg, #FF9D6C, #FF6A88);
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
     transition: all 0.3s ease-in-out;
-}
-
-.ant-btn.button-hovered {
+  }
+  
+  .checkout-button:hover {
     background: linear-gradient(93deg, #FF6A88, #FF9D6C);
-    border-radius: 5px;
-    font-size: 1em;
     transform: scale(1.05);
-}
+  }
+  

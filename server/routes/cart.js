@@ -14,6 +14,8 @@ const jobSchema = new mongoose.Schema({
 );
 
 const Cart = mongoose.model('Cart', jobSchema);
+const Notify = require("./jobList");
+// const JobList = require("./jobList");
 
 mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -53,22 +55,63 @@ router.delete('/cart-list/:cartId', async function (req, res, next) {
         res.status(500).send({ message: 'Error deleting item from the collection' });
     }
 });
-const JobList = require("../.")
-router.post('/transfer-data', async (req, res) => {
-    try {
-      const items = await CardList.find({});
-      
-      items.forEach(async (item) => {
-        const newJob = new JobList(item.toObject());
-        await newJob.save();
-        await CardList.findByIdAndDelete(item._id);
-      });
+
+
+
+
+// router.post("/transfer-data", async (req, res) => {
+//     try {
+//       const docId = req.body.name;
   
-      res.status(200).json({message: "Data transferred successfully"});
+//       const result = await Cart.aggregate([
+//         {
+//           $merge: {
+//             into: "notifies",
+//             on: "_id",
+//             whenMatched: "replace",
+//             whenNotMatched: "insert",
+//           },
+//         },
+//       ]);
+  
+//       if (result) {
+//         await Cart.findByIdAndRemove(docId);
+//         res.status(200).json({ message: "Data transferred successfully" });
+//       } else {
+//         res.status(404).json({ error: "Item not found" });
+//       }
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ error: "An error occurred while transferring data" });
+//     }
+// });
+router.post("/transfer-data", async (req, res) => {
+    try {
+      const docId = req.body.name;
+  
+      const result = await Cart.aggregate([
+        {
+          $merge: {
+            into: "notifies",
+            on: "_id",
+            whenMatched: "replace",
+            whenNotMatched: "insert",
+          },
+        },
+      ]);
+  
+      if (result) {
+        await Cart.collection.drop();
+      } else {
+        res.status(404).json({ error: "Item not found" });
+      }
     } catch (error) {
-      res.status(500).json({error: "An error occurred while transferring data"});
+      console.error(error);
+      res.status(500).json({ error: "An error occurred while transferring data" });
     }
   });
+  
+
   
 
 

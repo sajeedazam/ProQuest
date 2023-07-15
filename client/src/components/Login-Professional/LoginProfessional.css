@@ -1,25 +1,20 @@
 .ant-btn {
-  background-image: none;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  box-shadow: 0 2px 0 rgba(0,0,0,.015);
-  color: hsla(0, 43%, 99%, 0.85);
+  font-size: 1em;
+  color: #ffffff;
+  border: none;
   cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 400;
-  height: 32px;
-  line-height: 1.5715;
-  padding: 4px 15px;
-  position: relative;
-  text-align: center;
-  touch-action: manipulation;
-  transition: all .3s cubic-bezier(.645,.045,.355,1);
-  user-select: none;
-  white-space: nowrap;
+  border-radius: 5px;
+  background: linear-gradient(93deg, #FF9D6C, #FF6A88);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
 }
 
+.ant-btn:hover {
+  background: linear-gradient(93deg, #FF6A88, #FF9D6C);
+  border-radius: 5px;
+  font-size: 1em;
+  transform: scale(1.05);
+}
 
 .container section {
   align-items: center;

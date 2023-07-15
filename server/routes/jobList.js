@@ -3,17 +3,17 @@ var router = express.Router();
 const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema({
-  category: { type: String, required: true },
-  name: { type: String, required: true },
-  time: { type: String, required: true },
-  customerName: { type: String, required: true },
-  phone: { type: Number, required: true },
-  jobState: { type: String, required: false, default: "PENDING"}
-}
-
-);
+    category: { type: String, required: true },
+    name: { type: String, required: true },
+    time: { type: String, required: true },
+    customerName: { type: String, required: true },
+    phone: { type: Number, required: true },
+    jobState: { type: String, required: false, default: "PENDING" }
+});
 
 const Notify = mongoose.model('Notify', jobSchema);
+
+module.exports = Notify;
 
 mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,

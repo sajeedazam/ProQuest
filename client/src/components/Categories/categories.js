@@ -98,36 +98,41 @@ function Categories() {
       >
         <h2>Book an appointment for {selectedCategory}</h2>
         <form onSubmit={handleFormSubmit}>
-          <label>
+          <label className="form-label">
             Category:
-            <input type="text" name="category" value={selectedCategory} readOnly />
+            <input className="input-field" type="text" name="category" value={selectedCategory} readOnly />
           </label>
-          <label>
+          <label className="form-label">
             Service:
             <input type="text" name="name" value={name}
               onChange={(e) => setName(e.target.value)}
-              required />
+              required 
+              className="input-field"/>
           </label>
-          <label>
+          <label className="form-label">
             Time:
             <input type="text" name="time" value={time}
               onChange={(e) => setTime(e.target.value)}
-              required />
+              required 
+              className="input-field"/>
           </label>
-          <label>
+          <label className="form-label">
             Customer Name:
             <input type="text" name="customerName" value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               required
+              className="input-field"
             />
           </label>
-          <label>
+          <label className="form-label">
             Phone:
             <input type="text" name="phone" value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              required />
+              required 
+              className="input-field"
+              />
           </label>
-          <button type="submit">Add to Cart</button>
+          <button type="submit" className="add-to-cart-btn">Add to Cart</button>
         </form>
         <button className="close-button" onClick={closeModal}>X</button>
       </Modal>
@@ -136,3 +141,4 @@ function Categories() {
 }
 
 export default Categories;
+

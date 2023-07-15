@@ -13,6 +13,17 @@ export const getJobsAsync = createAsyncThunk(
     }
 );
 
+export const getNotifsAsync = createAsyncThunk(
+    'GET_JOBS',
+    async () => {
+        try {
+            return await jobService.getNotifs();
+        } catch (error) {
+            throw new Error('Failed to retrieve jobs from the database');
+        }
+    }
+);
+
 export const addJobsAsync = createAsyncThunk(
     'ADD_ITEM',
     async (job) => {
@@ -73,21 +84,19 @@ export const rejectJobAsync = createAsyncThunk(
         }
     }
 );
+
 export const checkoutAsync = createAsyncThunk(
-    'jobs/checkout',
-    async (_, { rejectWithValue }) => {
-      try {
-        const response = await fetch('http://localhost:5001/checkout', {
-          method: 'POST'
-        });
-        if (!response.ok) {
-          throw new Error('Checkout failed');
-        }
-        return await response.json();
-      } catch (error) {
-        return rejectWithValue(error.message);
+  'CHECKOUT',
+  async () => {
+    try {
+      const response = await jobService.transferData();
+      if (!response.ok) {
+        throw new Error('Checkout failed');
       }
+      return await response.json();
+    } catch (error) {
+        throw new Error('Failed to delete job from the database');
     }
-  );
-  
+  }
+);
 

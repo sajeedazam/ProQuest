@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getJobsAsync, addJobsAsync, deleteItemAsync } from './thunks';
+import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync } from './thunks';
 import {
   acceptJobAsync,
   rejectJobAsync
@@ -74,6 +74,18 @@ const jobReducer = createSlice({
       .addCase(deleteItemAsync.rejected, (state, action) => {
         state.deleteItem = REQUEST_STATE.REJECTED;
         state.error = action.error;
+      })
+
+      .addCase(checkoutAsync.pending, (state) => {
+        state.checkout = REQUEST_STATE.PENDING;
+        state.error = null;
+      })
+      .addCase(checkoutAsync.fulfilled, (state, action) => {
+        state.checkout = REQUEST_STATE.FULFILLED;
+      })
+      .addCase(checkoutAsync.rejected, (state, action) => {
+        state.checkout = REQUEST_STATE.REJECTED;
+        state.error = action.payload;
       })
 
       .addCase(acceptJobAsync.pending, (state) => {

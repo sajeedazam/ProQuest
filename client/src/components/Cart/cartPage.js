@@ -24,9 +24,9 @@ function CartPage() {
             <strong> {item.name} </strong>
             <ItemDeleteButton item={item._id} />
           </li>
-        )) : <p>No jobs available.</p>}
+        )) : <p>Cart empty</p>}
       </ul>
-      <Checkout/>
+      <Checkout />
       
     </div>
   );

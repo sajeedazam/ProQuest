@@ -1,17 +1,22 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { checkoutAsync } from '../../redux/notifications/thunks';
+import './checkout.css'; 
 
 function Checkout() {
   const dispatch = useDispatch();
+  const jobs = useSelector(state => state.jobs.items) || [];
 
   const handleCheckout = () => {
     dispatch(checkoutAsync());
-  }
+    window.location.reload();
+  };
 
   return (
-    <div>
-      <button onClick={handleCheckout}>Checkout</button>
+    <div className="checkout-container">
+      {jobs.length > 0 && (
+        <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
+      )}
     </div>
   );
 }
