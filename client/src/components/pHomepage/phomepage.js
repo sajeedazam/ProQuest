@@ -3,7 +3,7 @@ import './phomepage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { clearJobs } from '../../redux/notifications/reducer';
-import axios from 'axios';
+// import axios from 'axios';
 
 import { connect } from 'react-redux';
 
@@ -22,23 +22,23 @@ function ProfessionalHomescreen() {
     dispatch(clearJobs());
   };
   
-  const acceptJob = async (jobId) => {
-    try {
-      const res = await axios.post('http://localhost:5001/job/accept', { jobId });
-      console.log(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const acceptJob = async (jobId) => {
+  //   try {
+  //     const res = await axios.post('http://localhost:5001/job/accept', { jobId });
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  const rejectJob = async (jobId) => {
-    try {
-      const res = await axios.post('http://localhost:5001/job-list', { jobId });
-      console.log(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const rejectJob = async (jobId) => {
+  //   try {
+  //     const res = await axios.post('http://localhost:5001/job-list', { jobId });
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div className="container">
