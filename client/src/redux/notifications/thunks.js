@@ -24,6 +24,17 @@ export const addJobsAsync = createAsyncThunk(
     }
 );
 
+export const deleteItemAsync = createAsyncThunk(
+    'DELETE_ITEM',
+    async (itemId) => {
+        try {
+            return await jobService.deleteJobs(itemId);
+        } catch (error) {
+            throw new Error('Failed to delete');
+        }
+    }
+);
+
 
 export const acceptJobAsync = createAsyncThunk(
     'ACCEPT_JOB',
@@ -62,4 +73,21 @@ export const rejectJobAsync = createAsyncThunk(
         }
     }
 );
+export const checkoutAsync = createAsyncThunk(
+    'jobs/checkout',
+    async (_, { rejectWithValue }) => {
+      try {
+        const response = await fetch('http://localhost:5001/checkout', {
+          method: 'POST'
+        });
+        if (!response.ok) {
+          throw new Error('Checkout failed');
+        }
+        return await response.json();
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    }
+  );
+  
 

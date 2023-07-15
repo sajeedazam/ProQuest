@@ -1,12 +1,12 @@
-//NavBar.js
+// NavBar.js
 
 import React from "react";
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
-import SignUp from "../SignUp/signUp";
 import { connect } from 'react-redux';
 import { clearUser } from "../../redux/userActions";
+import Cart from '../Cart/cart';
 
 function NavBar({user, clearUser}) {
 
@@ -22,13 +22,15 @@ function NavBar({user, clearUser}) {
     }
 
     return (
-        <nav>
-            <div>Signed in as: {user ? user.displayName : 'Guest'}</div>
-            <Link to="/" onClick={logout}>Logout</Link>
+        <nav className="navbar">
+            <div>
+              <div>Signed in as: {user ? user.displayName : 'Guest'}</div>
+              <Cart />
+            </div>
+            <Link className="nav-link" to="/" onClick={logout}>Logout</Link>
         </nav>
     )
 }
-
 
 const mapStateToProps = state => ({
     user: state.user,
@@ -37,7 +39,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     clearUser: () => dispatch(clearUser()),
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
-
-// export default NavBar;

@@ -1,0 +1,17 @@
+.cart-icon {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+  
+  .cart-icon img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform .2s;
+  }
+  
+  .cart-icon img:hover {
+    transform: scale(1.2);
+  }
+  

@@ -15,7 +15,7 @@ const jobSchema = new mongoose.Schema({
 
 const Notify = mongoose.model('Notify', jobSchema);
 
-mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.r8nnfsp.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getJobsAsync, addJobsAsync } from './thunks';
-import { 
-  acceptJobAsync, 
-  rejectJobAsync 
+import { getJobsAsync, addJobsAsync, deleteItemAsync } from './thunks';
+import {
+  acceptJobAsync,
+  rejectJobAsync
 } from './thunks';
 const REQUEST_STATE = {
   IDLE: 'IDLE',
@@ -62,31 +62,44 @@ const jobReducer = createSlice({
         state.addJobs = REQUEST_STATE.REJECTED;
         state.error = action.error;
       })
+      .addCase(deleteItemAsync.pending, (state) => {
+        state.deleteItem = REQUEST_STATE.PENDING;
+        state.error = null;
+      })
+      .addCase(deleteItemAsync.fulfilled, (state, action) => {
+        state.deleteItem = REQUEST_STATE.FULFILLED;
+        const itemId = action.payload._id;
+        state.items = state.items.filter((item) => item._id !== itemId);
+      })
+      .addCase(deleteItemAsync.rejected, (state, action) => {
+        state.deleteItem = REQUEST_STATE.REJECTED;
+        state.error = action.error;
+      })
 
       .addCase(acceptJobAsync.pending, (state) => {
         state.addJobs = REQUEST_STATE.PENDING;
         state.error = null;
-    })
-    .addCase(acceptJobAsync.fulfilled, (state, action) => {
+      })
+      .addCase(acceptJobAsync.fulfilled, (state, action) => {
         state.addJobs = REQUEST_STATE.FULFILLED;
         state.jobs = state.jobs.filter(job => job.id !== action.payload);
-    })
-    .addCase(acceptJobAsync.rejected, (state, action) => {
+      })
+      .addCase(acceptJobAsync.rejected, (state, action) => {
         state.addJobs = REQUEST_STATE.REJECTED;
         state.error = action.error;
-    })
-    .addCase(rejectJobAsync.pending, (state) => {
+      })
+      .addCase(rejectJobAsync.pending, (state) => {
         state.addJobs = REQUEST_STATE.PENDING;
         state.error = null;
-    })
-    .addCase(rejectJobAsync.fulfilled, (state, action) => {
+      })
+      .addCase(rejectJobAsync.fulfilled, (state, action) => {
         state.addJobs = REQUEST_STATE.FULFILLED;
         state.jobs = state.jobs.filter(job => job.id !== action.payload);
-    })
-    .addCase(rejectJobAsync.rejected, (state, action) => {
+      })
+      .addCase(rejectJobAsync.rejected, (state, action) => {
         state.addJobs = REQUEST_STATE.REJECTED;
         state.error = action.error;
-    })
+      })
   }
 });
 

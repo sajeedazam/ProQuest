@@ -7,6 +7,7 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var jobsRouter = require('./routes/jobList');
+var cartRouter = require('./routes/cart')
 
 var app = express();
 
@@ -71,13 +72,14 @@ app.delete('/jobs/:id', async (req, res) => {
 });
 
 app.use('/', jobsRouter);
+app.use('/', cartRouter);
 // app.use('/job-list', jobsRouter);
 
 module.exports = app;
 
-var port = process.env.PORT || '5001';
-app.set('port', port);
+// var port = process.env.PORT || '5001';
+// app.set('port', port);
 
-var server = app.listen(port, function () {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// var server = app.listen(port, function () {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
