@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 const jobSchema = new mongoose.Schema({
     category: { type: String, required: true },
     name: { type: String, required: true },
@@ -14,10 +14,9 @@ const jobSchema = new mongoose.Schema({
 );
 
 const Cart = mongoose.model('Cart', jobSchema);
-const Notify = require("./jobList");
-// const JobList = require("./jobList");
+var uri = process.env.MONGODB_CONNECTION_STRING;
 
-mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -56,38 +55,9 @@ router.delete('/cart-list/:cartId', async function (req, res, next) {
     }
 });
 
-
-
-
-// router.post("/transfer-data", async (req, res) => {
-//     try {
-//       const docId = req.body.name;
-  
-//       const result = await Cart.aggregate([
-//         {
-//           $merge: {
-//             into: "notifies",
-//             on: "_id",
-//             whenMatched: "replace",
-//             whenNotMatched: "insert",
-//           },
-//         },
-//       ]);
-  
-//       if (result) {
-//         await Cart.findByIdAndRemove(docId);
-//         res.status(200).json({ message: "Data transferred successfully" });
-//       } else {
-//         res.status(404).json({ error: "Item not found" });
-//       }
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ error: "An error occurred while transferring data" });
-//     }
-// });
 router.post("/transfer-data", async (req, res) => {
     try {
-      const docId = req.body.name;
+    //   const docId = req.body.name;
   
       const result = await Cart.aggregate([
         {
@@ -102,6 +72,7 @@ router.post("/transfer-data", async (req, res) => {
   
       if (result) {
         await Cart.collection.drop();
+        res.status(200);
       } else {
         res.status(404).json({ error: "Item not found" });
       }
@@ -110,11 +81,6 @@ router.post("/transfer-data", async (req, res) => {
       res.status(500).json({ error: "An error occurred while transferring data" });
     }
   });
-  
-
-  
-
-
 
 module.exports = router;
 

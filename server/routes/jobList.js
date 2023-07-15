@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const jobSchema = new mongoose.Schema({
     category: { type: String, required: true },
@@ -12,10 +13,11 @@ const jobSchema = new mongoose.Schema({
 });
 
 const Notify = mongoose.model('Notify', jobSchema);
+var uri = process.env.MONGODB_CONNECTION_STRING;
 
 module.exports = Notify;
 
-mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -83,6 +85,11 @@ router.delete('/:jobId', async function (req, res, next) {
   }
 });
 
-
-
 module.exports = router;
+
+// require('dotenv').config();
+
+// mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
