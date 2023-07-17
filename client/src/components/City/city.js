@@ -52,7 +52,7 @@ export default function City() {
   return (
     <div className="container">
       <form className="form" onSubmit={handlePostalCodeSubmit}>
-        <p>Enter Postal Code</p>
+        <p>See if our service is available</p>
         <input
           className="input"
           type="text"
