@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import './HomePage.css';
+import City from '../City/city';
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <section className='d-flex justify-content-between center'>
         <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
           <h3 className='title'>Welcome to ProQuest</h3>
+          <City /> 
           <div>
             <Link to="/login-customer" className='ant-btn btn-customer'>SignUp/Login as a Customer</Link>
             <Link to="/login-professional" className='ant-btn btn-professional'>Login as a Professional</Link>
