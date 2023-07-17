@@ -7,7 +7,8 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var jobsRouter = require('./routes/jobList');
-var cartRouter = require('./routes/cart')
+var cartRouter = require('./routes/cart');
+var geocode = require('./routes/geocode');
 
 var app = express();
 
@@ -73,6 +74,7 @@ app.delete('/jobs/:id', async (req, res) => {
 
 app.use('/', jobsRouter);
 app.use('/', cartRouter);
+app.use('/',geocode);
 
 // app.use('/job-list', jobsRouter);
 

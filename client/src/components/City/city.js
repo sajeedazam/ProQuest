@@ -8,29 +8,33 @@ export default function City() {
   const [isWithinBounds, setIsWithinBounds] = useState(false);
   const [error, setError] = useState('');
 
-  const handlePostalCodeSubmit = (e) => {
+  const handlePostalCodeSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    fetch(
-      `https://api.opencagedata.com/geocode/v1/json?q=${postalCode}&key=b3cd4801472c450c8f0a813d0acda100`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Invalid postal code');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const { lat, lng } = data.results[0].geometry;
-        setLatitude(lat);
-        setLongitude(lng);
-        setIsWithinBounds(checkIfWithinBounds(lat, lng));
-      })
-      .catch((error) => {
-        console.error(error);
-        setError('Invalid input');
+    try {
+      const response = await fetch('http://localhost:5001/geocode', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ postalCode: postalCode }),
       });
+
+      if (!response.ok) {
+        throw new Error('Invalid postal code');
+      }
+
+      const data = await response.json();
+      const { lat, lng } = data;
+      
+      setLatitude(lat);
+      setLongitude(lng);
+      setIsWithinBounds(checkIfWithinBounds(lat, lng));
+    } catch (error) {
+      console.error(error);
+      setError('Invalid input');
+    }
   };
 
   const checkIfWithinBounds = (lat, lng) => {
