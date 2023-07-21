@@ -13,11 +13,11 @@ const jobSchema = new mongoose.Schema({
 });
 
 const Notify = mongoose.model('Notify', jobSchema);
-var uri = process.env.MONGODB_CONNECTION_STRING;
+const uri = process.env.MONGODB_CONNECTION_STRING;
 
 module.exports = Notify;
 
-mongoose.connect(`mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/`, {
+mongoose.connect(`${uri}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 require('dotenv').config();
+
 const jobSchema = new mongoose.Schema({
     category: { type: String, required: true },
     name: { type: String, required: true },
@@ -14,12 +15,12 @@ const jobSchema = new mongoose.Schema({
 );
 
 const Cart = mongoose.model('Cart', jobSchema);
-var uri = process.env.MONGODB_CONNECTION_STRING;
+const uri = process.env.MONGODB_CONNECTION_STRING;
 
-mongoose.connect(`mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/`, {
+mongoose.connect(`${uri}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+  });
 
 router.get('/cart-list', async function (req, res, next) {
     try {
