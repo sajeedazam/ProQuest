@@ -1,8 +1,7 @@
 import React from "react";
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import "./LoginProfessional.css";
-import logo from "../../urbancompanylogo.jpg";
+import logo from "../../proquest-logo-1.jpg";
 import {useState} from "react"
 import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
@@ -35,7 +34,7 @@ const LoginProfessional = () => {
             <div className="container mt-3">
                 <section className='d-flex justify-content-between'>
                     <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-                        <h3 className='title'>Sign In As a Professional</h3>
+                        <h3 className='title'>Sign In As Professional</h3>
                         <form onSubmit ={signIn}>
 
                             <Form.Group className="title1 mx-auto col-lg-6" controlId="formBasicEmail" style={{ marginBottom: '10px' }}>
@@ -47,7 +46,7 @@ const LoginProfessional = () => {
 
                                 <Form.Control type="password" name='password' placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ border: 'none' }} className='input-box'/>
                             </Form.Group>
-                            <button className='ant-btn' style={{ background: "rgb(67, 185, 127)", marginBottom: '5px' }} type="submit">
+                            <button className='ant-btn' type="submit">
                                 Submit
                             </button>
                         </form>

@@ -71,12 +71,59 @@
   color: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 5px 10px;
+  border-radius: 5px;
   font-size: 18px;
   transition: all 300ms;
+  font-weight: bold;
 }
 
 .close-button:hover {
   background-color: #ff4500;
+}
+
+.input-field {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.add-to-cart-btn {
+  font-size: 1.2em;
+  color: #ffffff;
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: linear-gradient(93deg, #FF9D6C, #FF6A88);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(93deg, #FF6A88, #FF9D6C);
+  transform: scale(1.05);
+}
+
+.form-label {
+  margin-top: 30px;
+  font-family:'Times New Roman', Times, serif;
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333; 
+}
+
+.form-label input {
+  margin-top: 5px;
 }

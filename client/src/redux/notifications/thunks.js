@@ -13,6 +13,17 @@ export const getJobsAsync = createAsyncThunk(
     }
 );
 
+export const getNotifsAsync = createAsyncThunk(
+    'GET_JOBS',
+    async () => {
+        try {
+            return await jobService.getNotifs();
+        } catch (error) {
+            throw new Error('Failed to retrieve jobs from the database');
+        }
+    }
+);
+
 export const addJobsAsync = createAsyncThunk(
     'ADD_ITEM',
     async (job) => {
@@ -20,6 +31,17 @@ export const addJobsAsync = createAsyncThunk(
             return await jobService.addJobs(job.category, job.name, job.time, job.customerName, job.phone);
         } catch (error) {
             throw new Error('Failed to add job to the database');
+        }
+    }
+);
+
+export const deleteItemAsync = createAsyncThunk(
+    'DELETE_ITEM',
+    async (itemId) => {
+        try {
+            return await jobService.deleteJobs(itemId);
+        } catch (error) {
+            throw new Error('Failed to delete');
         }
     }
 );
@@ -61,5 +83,20 @@ export const rejectJobAsync = createAsyncThunk(
             throw new Error('Failed to delete job from the database');
         }
     }
+);
+
+export const checkoutAsync = createAsyncThunk(
+  'CHECKOUT',
+  async () => {
+    try {
+      const response = await jobService.transferData();
+      if (!response.ok) {
+        throw new Error('Checkout failed');
+      }
+      return await response.json();
+    } catch (error) {
+        throw new Error('Failed to delete job from the database');
+    }
+  }
 );
 

@@ -3,7 +3,7 @@ import './phomepage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { clearJobs } from '../../redux/notifications/reducer';
-import axios from 'axios';
+// import axios from 'axios';
 
 import { connect } from 'react-redux';
 

@@ -23,7 +23,7 @@ function Dashboard() {
   return user ? (
     <div>
       <NavBar user={user} />    
-      <City />
+      {/* <City /> */}
       <Categories />
       <About />
     </div>

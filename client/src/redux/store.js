@@ -1,7 +1,8 @@
-import { createStore, combineReducers } from 'redux';
-import userReducer from './userReducer';
+import { combineReducers } from 'redux';
+// import userReducer from './userReducer';
 import jobReducer from './notifications/reducer';
 import { configureStore } from '@reduxjs/toolkit';
+//import cartReducer from './cartReducer'
 
 // const rootReducer = combineReducers({
 //   user: userReducer,

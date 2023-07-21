@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Categories/categories.css';
 import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { addJobsAsync } from '../../redux/notifications/thunks';
+// import { addToCart } from '../../redux/cartActions';
 
 const categories = [
   { name: 'Saloon', image: 'https://img.freepik.com/free-photo/client-doing-hair-cut-barber-shop-salon_1303-20861.jpg' },
@@ -18,6 +19,7 @@ function Categories() {
   const [time, setTime] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [phone, setPhone] = useState('');
+  // const [showNotification, setShowNotification] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -29,8 +31,6 @@ function Categories() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Form submitted!"); // Add this line
-
     const newJob = {
       category: selectedCategory,
       name: name,
@@ -41,17 +41,33 @@ function Categories() {
 
     try {
       const resultAction = await dispatch(addJobsAsync(newJob));
-      console.log('New job added', resultAction); // Log the result from dispatched action
+      console.log('New job added', resultAction);
+      ////dispatch(addToCart(newJob));
 
+
+      // setShowNotification(true);
+    } catch (error) {
+      console.error('Failed to add job', error);
+    } finally {
       setName('');
       setTime('');
       setCustomerName('');
       setPhone('');
-      setIsOpen(false); // This will close the modal after successful submission
-    } catch (error) {
-      console.error('Failed to add job', error);
+
+      setIsOpen(false);
     }
   }
+
+  // useEffect(() => {
+  //   let timeoutId;
+  //   if(showNotification) {
+  //     timeoutId = setTimeout(() => setShowNotification(false), 20000);
+  //   }
+
+  //   return () => clearTimeout(timeoutId);
+  // }, [showNotification]);
+
+
 
   const closeModal = () => {
     setIsOpen(false);
@@ -59,6 +75,12 @@ function Categories() {
 
   return (
     <div className="categoriesContainer">
+      {/* {showNotification && (
+        <div className="notification">
+          Successfully Added to Cart
+        </div>
+      )} */}
+
       <h1>Categories</h1>
       {categories.map(category => (
         <div className="card" key={category.name} onClick={() => handleOnClick(category.name)}>
@@ -76,36 +98,41 @@ function Categories() {
       >
         <h2>Book an appointment for {selectedCategory}</h2>
         <form onSubmit={handleFormSubmit}>
-          <label>
+          <label className="form-label">
             Category:
-            <input type="text" name="category" value={selectedCategory} readOnly />
+            <input className="input-field" type="text" name="category" value={selectedCategory} readOnly />
           </label>
-          <label>
+          <label className="form-label">
             Service:
             <input type="text" name="name" value={name}
               onChange={(e) => setName(e.target.value)}
-              required />
+              required 
+              className="input-field"/>
           </label>
-          <label>
+          <label className="form-label">
             Time:
             <input type="text" name="time" value={time}
               onChange={(e) => setTime(e.target.value)}
-              required />
+              required 
+              className="input-field"/>
           </label>
-          <label>
+          <label className="form-label">
             Customer Name:
             <input type="text" name="customerName" value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               required
+              className="input-field"
             />
           </label>
-          <label>
+          <label className="form-label">
             Phone:
             <input type="text" name="phone" value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              required />
+              required 
+              className="input-field"
+              />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" className="add-to-cart-btn">Add to Cart</button>
         </form>
         <button className="close-button" onClick={closeModal}>X</button>
       </Modal>
@@ -113,4 +140,5 @@ function Categories() {
   );
 }
 
-export default Categories;  
+export default Categories;
+

@@ -1,21 +1,23 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const jobSchema = new mongoose.Schema({
-  category: { type: String, required: true },
-  name: { type: String, required: true },
-  time: { type: String, required: true },
-  customerName: { type: String, required: true },
-  phone: { type: Number, required: true },
-  jobState: { type: String, required: false, default: "PENDING"}
-}
-
-);
+    category: { type: String, required: true },
+    name: { type: String, required: true },
+    time: { type: String, required: true },
+    customerName: { type: String, required: true },
+    phone: { type: Number, required: true },
+    jobState: { type: String, required: false, default: "PENDING" }
+});
 
 const Notify = mongoose.model('Notify', jobSchema);
+var uri = process.env.MONGODB_CONNECTION_STRING;
 
-mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@sandbox.r8nnfsp.mongodb.net/?retryWrites=true&w=majority', {
+module.exports = Notify;
+
+mongoose.connect(`mongodb+srv://m001-student:m001-mongodb-basics@sandbox.auynv35.mongodb.net/`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -83,6 +85,11 @@ router.delete('/:jobId', async function (req, res, next) {
   }
 });
 
-
-
 module.exports = router;
+
+// require('dotenv').config();
+
+// mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });

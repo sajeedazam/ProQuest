@@ -15,6 +15,7 @@ import HomePage from './components/HomePage/HomePage';
 import LoginProfessional from './components/Login-Professional/LoginProfessional';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import CartPage from './components/Cart/cartPage';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/auth" element={<AuthDetails />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/professional" element={<ProfessionalHomescreen />} />
+          <Route path="/cart" element={<CartPage/>} />
         </Routes>
       </div>
     </Router>
