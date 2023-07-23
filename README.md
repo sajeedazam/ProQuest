@@ -28,7 +28,7 @@
   - **Chat feature (to chat directly with the professional)**
   - **Customer satisfactory code(a randomnly generated code) which is provided to the customer and the customer is expected to provide it to the the professional only if they are satisfied with the professional's work.**
   - **Create a section where professionals can showcase their previous work, qualifications, certifications, etc. This can build trust and attract more customers.**
-  - **Implement privacy settings, allowing users to block or report users if needed.**
+  - **Implement privacy settings, allowing users to block or report professionals if needed.**
 
   
   ## Subtask Division:
