@@ -5,17 +5,15 @@ import City from '../City/city';
 
 const HomePage = () => {
   return (
-    <div className="container mt-3 homepage">
-      <section className='d-flex justify-content-between center'>
-        <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-          <h3 className='title'>Welcome to ProQuest</h3>
-          <City /> 
-          <div>
-            <Link to="/login-customer" className='ant-btn btn-customer'>SignUp/Login as a Customer</Link>
-            <Link to="/login-professional" className='ant-btn btn-professional'>Login as a Professional</Link>
-          </div>
+    <div className="homepage">
+      <div className="content-container">
+        <h3>Welcome to ProQuest</h3>
+        <City />
+        <div>
+          <Link to="/login-customer" className='ant-btn btn-customer'>SignUp/Login as a Customer</Link>
+          <Link to="/login-professional" className='ant-btn btn-professional'>Login as a Professional</Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

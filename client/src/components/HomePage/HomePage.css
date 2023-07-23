@@ -1,85 +1,80 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 .homepage {
-    height: 100vh;
-    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
-    -webkit-animation: slidein 100s;
-    animation: slidein 100s;
-
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
-}
-
-@-webkit-keyframes slidein {
-    from {
-        background-position: top; 
-        background-size: cover;
-    }
-    to {
-        background-position: -100px 0px;
-        background-size: cover;
-    }
-}
-
-@keyframes slidein {
-    from {
-        background-position: top;
-        background-size: cover;
-    }
-    to {
-        background-position: -100px 0px;
-        background-size: cover;
-    }
-}
-
-.homepage .center {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(75, 75, 250, 0.3);
-    border-radius: 3px;
+    height: 100vh;
+    width: 100vw;
+    background: url('https://chronicle.brightspotcdn.com/dims4/default/d0caaec/2147483647/strip/true/crop/2076x1384+0+0/resize/1680x1120!/format/webp/quality/90/?url=http%3A%2F%2Fchronicle-brightspot.s3.amazonaws.com%2F5f%2F48%2Ff765334e43649d2a774345bc7881%2Fbaskojan31-istock.jpg') no-repeat left center;
+    background-size: 80%;
 }
 
-.homepage .center h1 {
-    text-align: center;
-    color: white;
-    font-family: 'Source Code Pro', monospace;
-    text-transform: uppercase;
+.content-container {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  width: 20%;
+  margin-left: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
 }
 
+.content-container h3 {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 30px; /* Increased font-size */
+  text-align: center;
+  color: white;
+}
+
+.content-container p {
+  margin: 20px 0;
+  font-size: 20px; /* Increased font-size */
+  font-weight: bold; /* Make the text bold */
+}
+
+.content-container input, .content-container button {
+  padding: 12px; /* Increased padding */
+  font-size: 18px; /* Increased font-size */
+  width: 100%;
+  margin-bottom: 10px;
+}
 
 .homepage .ant-btn {
   color: #FFF; /* Make the button text white */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  background-color: #222; /* Darker background */
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 18px; /* Increased font-size */
+  width: 100%; /* Full-width buttons */
+  height: 60px; /* Fixed height */
+  margin-bottom: 20px; /* Increased bottom margin */
   text-decoration: none; /* Remove underline from Link */
-  display: inline-block; /* Required for adding some padding */
+  display: flex; /* Flex display */
+  justify-content: center; /* Center align text */
+  align-items: center; /* Center align text */
   transition: transform 0.3s ease-in-out; /* Smooth transform transition */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add some shadow to make the buttons "pop" */
 }
 
 .homepage .ant-btn:hover {
+  background-color: #333; /* Slightly lighter on hover */
   transform: scale(1.1); /* Scale up when hovered */
 }
 
-.homepage .btn-customer {
-  margin-right: 20px; /* Add some right margin to separate the buttons */
+/* Enhanced input box */
+.homepage input[type='text'] {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 18px; /* Increased font-size */
+  margin-bottom: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add some shadow to make the input "pop" */
 }
 
-.homepage .btn-professional {
-  margin-left: 20px; /* Add some left margin to separate the buttons */
+.homepage input[type='text']:focus {
+  border-color: #555;
+  outline: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add some shadow to make the input "pop" when focused */
 }
