@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import logo from "../../proquest-logo-1.jpg";
-import './login.css';  // Import the CSS file here
+import './login.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -26,36 +26,30 @@ const Login = () => {
     };
 
     return (
-        <>
-            <div className="container mt-3">
-                <section className='d-flex justify-content-between'>
-                    <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-                        <h3 className='title'>Sign In As a Customer</h3>
-                        <form onSubmit={signIn}>
-                            <Form.Group className="title1 mx-auto col-lg-6" controlId="formBasicEmail" style={{ marginBottom: '10px' }}>
-                                <Form.Control type="email" name='email' placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ border: 'none' }} className='input-box' />
-                            </Form.Group>
-
-                            <Form.Group className="title1 no-border mx-auto col-lg-6" controlId="formBasicPassword" style={{ marginBottom: '10px' }}>
-                                <Form.Control type="password" name='password' placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ border: 'none' }} className='input-box' />
-                            </Form.Group>
-                            <button className={`ant-btn ${isHovered ? 'button-hovered' : 'button'}`} 
-                                    onMouseEnter={() => setIsHovered(true)}
-                                    onMouseLeave={() => setIsHovered(false)}
-                                    type="submit">
-                                Submit
-                            </button>
-                        </form>
-                        <Link to="/signUp" className='mt-3'>Create an account</Link>
-                    </div>
-                    <div className="right_data mt-5" style={{ width: "100%" }}>
-                        <div className="sign_img mt-5">
-                            <img src={logo} style={{ maxWidth: 400 }} alt="" />
-                        </div>
-                    </div>
-                </section>
+        <div className="login-homepage">
+            <div className="login-logo-container">
+                <img src={logo} alt="Logo" />
             </div>
-        </>
+            <div className="login-content-container">
+                <h3 className='login-title'>Sign In As a Customer</h3>
+                <form onSubmit={signIn}>
+                    <Form.Group className="login-title1 mx-auto" controlId="formBasicEmail" style={{ marginBottom: '10px' }}>
+                        <Form.Control type="email" name='email' placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} className='login-input-box' />
+                    </Form.Group>
+
+                    <Form.Group className="login-title1 no-border mx-auto" controlId="formBasicPassword" style={{ marginBottom: '10px' }}>
+                        <Form.Control type="password" name='password' placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className='login-input-box' />
+                    </Form.Group>
+                    <button className={`login-ant-btn ${isHovered ? 'button-hovered' : 'button'}`} 
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            type="submit">
+                        Submit
+                    </button>
+                </form>
+                <Link to="/signUp" className='login-create-account-btn'>Create an account</Link>
+            </div>
+        </div>
     );
 };
 
