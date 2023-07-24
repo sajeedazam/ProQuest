@@ -25,7 +25,7 @@ function Dashboard() {
       <NavBar user={user} />    
       {/* <City /> */}
       <Categories />
-      <About />
+      {/* <About /> */}
     </div>
   ) : (
     <div>Loading...</div>  
