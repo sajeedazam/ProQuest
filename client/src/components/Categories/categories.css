@@ -1,37 +1,61 @@
-.categoriesContainer {
-  background-color: rgb(194, 207, 207);
-  padding: 20px;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
-.categoriesContainer h1 {
+body {
+  background: url('https://images5.alphacoders.com/552/552426.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.categories-categoriesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  text-align: center;
+  background-image: url('https://images5.alphacoders.com/552/552426.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.categories-categoriesContainer h1 {
   color: #333;
   margin-bottom: 20px;
 }
 
-.card {
-  display: inline-block;
+.categories-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin: 10px;
-  width: 200px;
-  transition: transform .2s;
+  padding: 1px;
   background-color: #fff;
+  transition: transform .2s;
 }
 
-.card:hover {
+.categories-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   transform: scale(1.2);
 }
 
-.categoryImage {
+.categories-categoryImage {
   width: 100%;
-  height: 150px; /* Fix the height of the image */
+  height: 200px; /* Fix the height of the image */
   object-fit: cover; /* This will make sure the image is resized in a way that it does not break the aspect ratio */
   border-radius: 8px 8px 0 0;
 }
 
-.card h3 {
+.categories-card h3 {
   margin: 0;
   padding: 10px;
   text-align: center;
@@ -63,7 +87,7 @@
   transition: all 500ms;
 }
 
-.close-button {
+.categories-close-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -78,11 +102,11 @@
   font-weight: bold;
 }
 
-.close-button:hover {
+.categories-close-button:hover {
   background-color: #ff4500;
 }
 
-.input-field {
+.categories-input-field {
   padding: 10px;
   margin: 10px 0;
   border: none;
@@ -93,12 +117,12 @@
   transition: box-shadow 0.3s ease;
 }
 
-.input-field:focus {
+.categories-input-field:focus {
   outline: none;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.add-to-cart-btn {
+.categories-add-to-cart-btn {
   font-size: 1.2em;
   color: #ffffff;
   padding: 10px 30px;
@@ -110,20 +134,19 @@
   transition: all 0.3s ease-in-out;
 }
 
-.add-to-cart-btn:hover {
+.categories-add-to-cart-btn:hover {
   background: linear-gradient(93deg, #FF6A88, #FF9D6C);
   transform: scale(1.05);
 }
 
-.form-label {
+.categories-form-label {
   margin-top: 30px;
-  font-family:'Times New Roman', Times, serif;
   display: block;
   margin-bottom: 15px;
   font-size: 18px;
   color: #333; 
 }
 
-.form-label input {
+.categories-form-label input {
   margin-top: 5px;
 }

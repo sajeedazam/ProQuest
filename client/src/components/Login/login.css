@@ -1,4 +1,85 @@
-.ant-btn.button {
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+.login-homepage {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background: url('https://images5.alphacoders.com/552/552426.jpg');
+    background-size: cover;
+}
+
+.login-content-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.login-logo-container {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-logo-container img {
+  max-width: 60%;
+  height: auto;
+}
+
+.login-ant-btn {
+  color: #FFF;
+  background-color: #222;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-ant-btn:hover {
+  background-color: #333;
+  transform: scale(1.1);
+}
+
+.login-input-box {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.login-input-box:focus {
+  border-color: #555;
+  outline: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.login-ant-btn.button {
     font-size: 1em;
     color: #ffffff;
     border: none;
@@ -9,9 +90,26 @@
     transition: all 0.3s ease-in-out;
 }
 
-.ant-btn.button-hovered {
+.login-ant-btn.button-hovered {
     background: linear-gradient(93deg, #FF6A88, #FF9D6C);
     border-radius: 5px;
     font-size: 1em;
     transform: scale(1.05);
+}
+
+.login-create-account-btn {
+  color: #FFF;
+  background-color: #222;
+  border: 2px solid #FFF;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.login-create-account-btn:hover {
+  background-color: #333;
 }

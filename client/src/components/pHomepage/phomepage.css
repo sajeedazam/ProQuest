@@ -1,55 +1,86 @@
-.container {
-  text-align: center;
-  margin-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.pHomepage-body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
 }
 
-.title {
-  color: #333;
-  font-size: 24px;
+.pHomepage-image {
+  flex: 0 0 60%;
+  background: url('https://images.pexels.com/photos/4968382/pexels-photo-4968382.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4968382.jpg&fm=jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.pHomepage-container {
+  width: 40%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pHomepage-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
-.info {
-  color: #333;
-  font-size: 18px;
+.pHomepage-info {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
-.button {
-  font-size: 1em;
+.button,
+.mt-3 {
+  font-size: 1.2em;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   background: linear-gradient(93deg, #FF9D6C, #FF6A88);
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
   transition: all 0.3s ease-in-out;
+  margin: 15px 0;
+  text-decoration: none;
 }
 
-.button:hover {
+.button:hover,
+.mt-3:hover {
   background: linear-gradient(93deg, #FF6A88, #FF9D6C);
   transform: scale(1.05);
 }
 
-.jobs-container {
+.pHomepage-jobs-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
   margin-top: 30px;
-  text-align: center;
 }
 
-.jobs-container h2 {
-  color: #333;
+.pHomepage-jobs-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  color: #000;
   margin-bottom: 15px;
 }
 
-.jobs-container p {
+.pHomepage-jobs-container p {
   margin: 5px;
+  font-size: 18px;
+  color: #000;
 }
 
-.jobs-container button {
-  font-size: 1em;
+.pHomepage-jobs-container button {
+  font-size: 1.2em;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -59,7 +90,7 @@
   margin-top: 20px;
 }
 
-.jobs-container button:hover {
+.pHomepage-jobs-container button:hover {
   background: linear-gradient(93deg, #FF6A88, #FF9D6C);
   transform: scale(1.05);
 }
