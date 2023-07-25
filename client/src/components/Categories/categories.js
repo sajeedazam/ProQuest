@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Categories/categories.css';
 import Modal from 'react-modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addJobsAsync } from '../../redux/notifications/thunks';
 // import { addToCart } from '../../redux/cartActions';
 
@@ -14,6 +14,13 @@ import { addJobsAsync } from '../../redux/notifications/thunks';
     { name: 'Maid', image: 'https://www.ecomaids.com/fairfax-va/wp-content/uploads/sites/76/2021/02/EcomaidsWideCounter1080.jpg' },
     { name: 'Carpentry', image: 'https://uploads-ssl.webflow.com/647888ca92d03e3fca3f1ea0/647888ca92d03e3fca3f2389_carpentry.jpg' },
     { name: 'Paint Work', image: 'https://www.paintzen.com/wp-content/uploads/2019/12/interior-paint-contractors-painting-paintzen.jpg' },
+];
+
+const timeSlots = [
+  '09:00 - 10:00',
+  '12:00 - 1:00',
+  '2:00 - 3:00',
+  '4:00 - 5:00',
 ];
 
 function Categories() {
@@ -32,35 +39,49 @@ function Categories() {
     setIsOpen(true);
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+// Then within your Categories component:
+const jobs = useSelector(state => state.jobs);  // replace `state.jobs` with the actual path to your jobs data
+// ...
+console.log(jobs);
+const handleFormSubmit = async (e) => {
+  e.preventDefault();
 
-    const newJob = {
-      category: selectedCategory,
-      name: name,
-      time: time,
-      customerName: customerName,
-      phone: phone
-    };
-
-    try {
-      const resultAction = await dispatch(addJobsAsync(newJob));
-      console.log('New job added', resultAction);
-      ////dispatch(addToCart(newJob));
-
-
-      // setShowNotification(true);
-    } catch (error) {
-      console.error('Failed to add job', error);
-    } finally {
-      setName('');
-      setTime('');
-      setCustomerName('');
-      setPhone('');
-
-      setIsOpen(false);
+  const newJob = {
+    category: selectedCategory,
+    name: name,
+    time: time,
+    customerName: customerName,
+    phone: phone
+  };
+  
+  let isDuplicate = false;
+  for (const job of Object.values(jobs)) {
+    if (job && job.time === newJob.time && job.category === newJob.category) {
+      isDuplicate = true;
+      break;
     }
   }
+  
+  if (isDuplicate) {
+    alert('Job with same time and category already exists!');
+    return;
+  }
+
+  try {
+    const resultAction = await dispatch(addJobsAsync(newJob));
+    console.log('New job added', resultAction);
+  } catch (error) {
+    console.error('Failed to add job', error);
+  } finally {
+    setName('');
+    setTime('');
+    setCustomerName('');
+    setPhone('');
+
+    setIsOpen(false);
+  }
+}
+
 
   // useEffect(() => {
   //   let timeoutId;
@@ -114,11 +135,15 @@ function Categories() {
               className="categories-input-field"/>
           </label>
           <label className="categories-form-label">
-            Time:
-            <input type="text" name="time" value={time}
-              onChange={(e) => setTime(e.target.value)}
-              required 
-              className="categories-input-field"/>
+          Time:
+            <select name="time" value={time} onChange={(e) => setTime(e.target.value)} required className="categories-input-field">
+            <option value="">Select a time slot</option>
+              {timeSlots.map((slot, index) => (
+              <option key={index} value={slot}>
+                {slot}
+              </option>
+              ))}
+            </select>
           </label>
           <label className="categories-form-label">
             Customer Name:
