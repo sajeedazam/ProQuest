@@ -25,7 +25,7 @@ function Jobs({ jobs }) {
     const handleRejectJob = async (job) => {
       try {
         await dispatch(rejectJob(job));
-      setLocalJobs(localJobs.filter(j => j.name !== job.name));
+        setLocalJobs(localJobs.filter(j => j.id !== job.id));;
       } catch (error) {
         console.error(error);
       }
@@ -36,13 +36,18 @@ function Jobs({ jobs }) {
       <div >
         <Link to="/professional" className='mt-3'>Back</Link>
       <ul className="jobs-container"> 
-        {jobs.map((job, index) => (
-          <div key={index} className="job-card">
-            <p>{job.name}</p>
-            <button onClick={() => handleAcceptJob(job)}>Accept</button>
-            <button onClick={() => handleRejectJob(job)}>Reject</button>
-          </div>
-        ))}
+      {jobs.map((job, index) => (
+      <div key={index} className="job-card">
+        <p><strong>Job Name:</strong> {job.name}</p>
+        <p><strong>Category:</strong> {job.category}</p>
+        <p><strong>Time:</strong> {job.time}</p>
+        <p><strong>Customer Name:</strong> {job.customerName}</p>
+        <p><strong>Phone:</strong> {job.phone}</p>
+        <p><strong>Price:</strong> {job.price}</p>
+        <button onClick={() => handleAcceptJob(job)}>Accept</button>
+        <button onClick={() => handleRejectJob(job)}>Reject</button>
+      </div>
+    ))}
       </ul>
       </div> 
     );

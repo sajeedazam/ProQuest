@@ -16,13 +16,13 @@ const getNotifs = async () => {
     return res.json();
 };
 
-const addJobs = async ( category, name, time, customerName, phone ) => {
+const addJobs = async (category, name, time, customerName, phone, price) => {
     const response = await fetch('http://localhost:5001/cart-list', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ category, name, time, customerName, phone })
+        body: JSON.stringify({ category, name, time, customerName, phone, price })
     });
 
     const data = await response.json();
