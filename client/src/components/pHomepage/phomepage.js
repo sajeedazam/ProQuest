@@ -12,6 +12,7 @@ function ProfessionalHomescreen() {
   const dispatch = useDispatch();
   const acceptedJobs = useSelector(state => state.jobs.acceptedJobs);
   const rejectedJobs = useSelector((state) => state.jobs.rejectedJobs)
+  const earnedAmount = useSelector(state => state.jobs.earnedAmount);
   console.log(useSelector((state) => state))
 
   const toggleJobs = () => {
@@ -21,6 +22,7 @@ function ProfessionalHomescreen() {
   const handleClearJobs = () => {
     dispatch(clearJobs());
   };
+  
   
   // const acceptJob = async (jobId) => {
   //   try {
@@ -52,7 +54,7 @@ function ProfessionalHomescreen() {
           {showJobs ? "Hide Jobs" : "Show Jobs"}
         </button>
 
-        <h2 className="pHomepage-info">Amount earned: $5000</h2>
+        <h2 className="pHomepage-info">Amount earned: ${earnedAmount}</h2>
         <h2 className="pHomepage-info">Timings: 9AM - 5PM</h2>
 
         {showJobs && (

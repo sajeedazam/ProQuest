@@ -15,7 +15,9 @@ const INITIAL_STATE = {
   jobs: [],
   getJobs: REQUEST_STATE.IDLE,
   addJobs: REQUEST_STATE.IDLE,
-  error: null
+  error: null,
+  totalPrice: 0,
+  earnedAmount: 0
 };
 
 const jobReducer = createSlice({
@@ -26,6 +28,7 @@ const jobReducer = createSlice({
       state.acceptedJobs = state.acceptedJobs ? state.acceptedJobs : []
       const newItem = { id: 1, ...action.payload };
       state.acceptedJobs.push(newItem);
+      state.earnedAmount += newItem.price;  // Increment earned amount
     },
     rejectJob: (state, action) => {
       state.rejectedJobs = state.rejectedJobs ? state.rejectedJobs : []
@@ -57,7 +60,9 @@ const jobReducer = createSlice({
       .addCase(addJobsAsync.fulfilled, (state, action) => {
         state.addJobs = REQUEST_STATE.FULFILLED;
         state.items.push(action.payload);
+        state.totalPrice += action.payload.price;  // Assuming payload includes price
       })
+    
       .addCase(addJobsAsync.rejected, (state, action) => {
         state.addJobs = REQUEST_STATE.REJECTED;
         state.error = action.error;
@@ -69,8 +74,14 @@ const jobReducer = createSlice({
       .addCase(deleteItemAsync.fulfilled, (state, action) => {
         state.deleteItem = REQUEST_STATE.FULFILLED;
         const itemId = action.payload._id;
-        state.items = state.items.filter((item) => item._id !== itemId);
-      })
+        state.items = state.items.filter((item) => {
+          if (item._id === itemId) {
+            state.totalPrice -= item.price;
+            return false;
+          }
+          return true;
+        });
+    })
       .addCase(deleteItemAsync.rejected, (state, action) => {
         state.deleteItem = REQUEST_STATE.REJECTED;
         state.error = action.error;

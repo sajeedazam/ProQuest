@@ -43,6 +43,7 @@ function Jobs({ jobs }) {
         <p><strong>Time:</strong> {job.time}</p>
         <p><strong>Customer Name:</strong> {job.customerName}</p>
         <p><strong>Phone:</strong> {job.phone}</p>
+        <p><strong>Price:</strong> {job.price}</p>
         <button onClick={() => handleAcceptJob(job)}>Accept</button>
         <button onClick={() => handleRejectJob(job)}>Reject</button>
       </div>

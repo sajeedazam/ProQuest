@@ -9,7 +9,8 @@ const jobSchema = new mongoose.Schema({
     time: { type: String, required: true },
     customerName: { type: String, required: true },
     phone: { type: Number, required: true },
-    jobState: { type: String, required: false, default: "PENDING" }
+    jobState: { type: String, required: false, default: "PENDING" },
+    price: {type: Number, required: true}
 }
 
 );

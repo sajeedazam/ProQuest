@@ -28,12 +28,12 @@ export const addJobsAsync = createAsyncThunk(
     'ADD_ITEM',
     async (job) => {
         try {
-            return await jobService.addJobs(job.category, job.name, job.time, job.customerName, job.phone);
+            return await jobService.addJobs(job.category, job.name, job.time, job.customerName, job.phone, job.price);
         } catch (error) {
             throw new Error('Failed to add job to the database');
         }
     }
-);
+  );
 
 export const deleteItemAsync = createAsyncThunk(
     'DELETE_ITEM',
