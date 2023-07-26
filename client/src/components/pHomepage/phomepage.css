@@ -62,6 +62,8 @@
   padding: 20px;
   border-radius: 10px;
   margin-top: 30px;
+  max-height: 300px; /* Set the maximum height for the container */
+  overflow-y: auto; 
 }
 
 .pHomepage-jobs-container h2 {

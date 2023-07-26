@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { acceptJob, clearJobs, rejectJob } from '../../redux/notifications/reducer';
 import { Link } from 'react-router-dom';
 import '../Jobs/jobs.css';
+import { acceptAsync, deleteItemAsync, getNotifsAsync } from '../../redux/notifications/thunks';
 
 function Jobs({ jobs }) {
     const dispatch = useDispatch();
@@ -12,11 +12,12 @@ function Jobs({ jobs }) {
       return <h2>No jobs available</h2>;
     }
 
+
     const handleAcceptJob = async (job) => {
       try {
-        await dispatch(acceptJob(job));
-      setLocalJobs(localJobs.filter(j => j.name !== job.name));
-      console.log(localJobs);
+      await dispatch(acceptAsync(job));
+      await setLocalJobs(dispatch(getNotifsAsync()));
+    
       } catch (error) {
         console.error(error);
       }
@@ -24,12 +25,10 @@ function Jobs({ jobs }) {
   
     const handleRejectJob = async (job) => {
       try {
-        await dispatch(rejectJob(job));
-        setLocalJobs(localJobs.filter(j => j.id !== job.id));;
+        await dispatch(deleteItemAsync(job));
       } catch (error) {
         console.error(error);
       }
-      
     };
   
     return (
@@ -44,8 +43,8 @@ function Jobs({ jobs }) {
         <p><strong>Customer Name:</strong> {job.customerName}</p>
         <p><strong>Phone:</strong> {job.phone}</p>
         <p><strong>Price:</strong> {job.price}</p>
-        <button onClick={() => handleAcceptJob(job)}>Accept</button>
-        <button onClick={() => handleRejectJob(job)}>Reject</button>
+        <button onClick={() => handleAcceptJob(job._id)}>Accept</button>
+        <button onClick={() => handleRejectJob(job._id)}>Reject</button>
       </div>
     ))}
       </ul>

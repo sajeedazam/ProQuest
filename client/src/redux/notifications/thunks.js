@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import jobService from './services'
 
-
 export const getJobsAsync = createAsyncThunk(
     'GET_JOBS',
     async () => {
@@ -33,7 +32,7 @@ export const addJobsAsync = createAsyncThunk(
             throw new Error('Failed to add job to the database');
         }
     }
-  );
+);
 
 export const deleteItemAsync = createAsyncThunk(
     'DELETE_ITEM',
@@ -46,57 +45,110 @@ export const deleteItemAsync = createAsyncThunk(
     }
 );
 
-
-export const acceptJobAsync = createAsyncThunk(
-    'ACCEPT_JOB',
+export const acceptAsync = createAsyncThunk(
+    'ACCEPT',
     async (jobId) => {
         try {
-            const response = await fetch(`http://localhost:5001/job-list/${jobId}`, {
-                method: 'DELETE'
-            });
-
+            const response = await jobService.acceptTransfer(jobId);
             if (!response.ok) {
-                throw new Error('Failed to delete job from the database');
+                throw new Error('Transfer failed');
             }
-
-            return jobId;
+            return await response.json();
         } catch (error) {
-            throw new Error('Failed to delete job from the database');
+            throw new Error('Failed to transfer job from the database');
         }
     }
 );
 
-export const rejectJobAsync = createAsyncThunk(
-    'REJECT_JOB',
+export const getAcceptedAsync = createAsyncThunk(
+    'GET_ACCEPTS',
+    async () => {
+        try {
+            return await jobService.getAccepts();
+        } catch (error) {
+            throw new Error('Failed to retrieve jobs from the database');
+        }
+    }
+);
+
+export const completedAsync = createAsyncThunk(
+    'COMPLETE',
     async (jobId) => {
         try {
-            const response = await fetch(`http://localhost:5001/job-list/${jobId}`, {
-                method: 'DELETE'
-            });
-
+            const response = await jobService.completedTransfer(jobId);
             if (!response.ok) {
-                throw new Error('Failed to delete job from the database');
+                throw new Error('Transfer failed');
             }
-
-            return jobId;
+            return await response.json();
         } catch (error) {
-            throw new Error('Failed to delete job from the database');
+            throw new Error('Failed to transfer job from the database');
+        }
+    }
+);
+
+export const getCompletedAsync = createAsyncThunk(
+    'GET_COMPLETES',
+    async () => {
+        try {
+            return await jobService.getComplete();
+        } catch (error) {
+            throw new Error('Failed to retrieve jobs from the database');
         }
     }
 );
 
 export const checkoutAsync = createAsyncThunk(
-  'CHECKOUT',
-  async () => {
-    try {
-      const response = await jobService.transferData();
-      if (!response.ok) {
-        throw new Error('Checkout failed');
-      }
-      return await response.json();
-    } catch (error) {
-        throw new Error('Failed to delete job from the database');
+    'CHECKOUT',
+    async () => {
+        try {
+            const response = await jobService.transferData();
+            if (!response.ok) {
+                throw new Error('Checkout failed');
+            }
+            return await response.json();
+        } catch (error) {
+            throw new Error('Failed to delete job from the database');
+        }
     }
-  }
 );
+
+// export const acceptJobAsync = createAsyncThunk(
+//     'ACCEPT_JOB',
+//     async (jobId) => {
+//         try {
+//             const response = await fetch(`http://localhost:5001/job-list/${jobId}`, {
+//                 method: 'DELETE'
+//             });
+
+//             if (!response.ok) {
+//                 throw new Error('Failed to delete job from the database');
+//             }
+
+//             return jobId;
+//         } catch (error) {
+//             throw new Error('Failed to delete job from the database');
+//         }
+//     }
+// );
+
+// export const rejectJobAsync = createAsyncThunk(
+//     'REJECT_JOB',
+//     async (jobId) => {
+//         try {
+//             const response = await fetch(`http://localhost:5001/job-list/${jobId}`, {
+//                 method: 'DELETE'
+//             });
+
+//             if (!response.ok) {
+//                 throw new Error('Failed to delete job from the database');
+//             }
+
+//             return jobId;
+//         } catch (error) {
+//             throw new Error('Failed to delete job from the database');
+//         }
+//     }
+// );
+
+
 

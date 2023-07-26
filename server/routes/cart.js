@@ -59,8 +59,6 @@ router.delete('/cart-list/:cartId', async function (req, res, next) {
 
 router.post("/transfer-data", async (req, res) => {
     try {
-    //   const docId = req.body.name;
-  
       const result = await Cart.aggregate([
         {
           $merge: {

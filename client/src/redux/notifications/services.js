@@ -36,7 +36,7 @@ const addJobs = async (category, name, time, customerName, phone, price) => {
 
 
 const deleteJobs = async (itemId) => {
-    const response = await fetch(`http://localhost:5001/cart-list/${itemId}`, {
+    const response = await fetch(`http://localhost:5001/job-list/${itemId}`, {
       method: 'DELETE'
     });
   
@@ -49,9 +49,59 @@ const deleteJobs = async (itemId) => {
     return data;
   }
 
+  const getAccepts = async () => {
+    const res = await fetch('http://localhost:5001/transferred-accepts',
+        {
+            method: 'GET'
+        });
+
+    return res.json();
+};
+
+const getComplete = async () => {
+  const res = await fetch('http://localhost:5001/transferred-completes',
+      {
+          method: 'GET'
+      });
+
+  return res.json();
+};
+
   const transferData = async () => {
     try {
       const response = await fetch('http://localhost:5001/transfer-data', {
+        method: 'POST',
+      });
+  
+      if (!response.ok) {
+        throw new Error('Transfer data failed');
+      }
+  
+      return response.json();
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }; 
+
+  const completedTransfer = async (jobId) => {
+    try {
+      const response = await fetch(`http://localhost:5001/transfer-completed-data/${jobId}`, {
+        method: 'POST',
+      });
+  
+      if (!response.ok) {
+        throw new Error('Transfer data failed');
+      }
+  
+      return response.json();
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }; 
+
+  const acceptTransfer = async (jobId) => {
+    try {
+      const response = await fetch(`http://localhost:5001/transfer-accepted-data/${jobId}`, {
         method: 'POST',
       });
   
@@ -71,5 +121,9 @@ export default {
     addJobs,
     deleteJobs,
      transferData,
-     getNotifs
+     getNotifs,
+     acceptTransfer,
+     getAccepts,
+     completedTransfer,
+     getComplete
 }
