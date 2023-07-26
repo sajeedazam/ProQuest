@@ -4,7 +4,7 @@ import Login from './components/Login/login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Categories from './components/Categories/categories';
 import About from './components/About/about';
-import City from './components/City/city';
+import Chat from './components/Chat/chat';
 import JobsList from './components/Jobs/jobsList';
 import SignupPage from './components/SignUp/signUp';
 import ProfessionalHomescreen from './components/pHomepage/phomepage.js'
@@ -33,6 +33,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/professional" element={<ProfessionalHomescreen />} />
           <Route path="/cart" element={<CartPage/>} />
+          <Route path="/chat" element={<Chat />} />
+          {/* <Route path="/chat-customer" element={<Chat />} /> */}
         </Routes>
       </div>
     </Router>
