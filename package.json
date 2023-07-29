@@ -1,0 +1,16 @@
+{
+  "name": "unnamed",
+  "version": "1.0.0",
+  "description": "Pro Quest is an irrestitable online application for household struggling to find",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd server && npm install",
+    "start-server": "cd server && npm start",
+    "build-client":"cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "start-client": "cd client && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

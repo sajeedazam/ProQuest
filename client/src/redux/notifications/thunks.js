@@ -123,43 +123,6 @@ export const getAmountAsync = createAsyncThunk(
     }
 );
 
-// export const acceptJobAsync = createAsyncThunk(
-//     'ACCEPT_JOB',
-//     async (jobId) => {
-//         try {
-//             const response = await fetch(`http://localhost:5001/job-list/${jobId}`, {
-//                 method: 'DELETE'
-//             });
-
-//             if (!response.ok) {
-//                 throw new Error('Failed to delete job from the database');
-//             }
-
-//             return jobId;
-//         } catch (error) {
-//             throw new Error('Failed to delete job from the database');
-//         }
-//     }
-// );
-
-// export const rejectJobAsync = createAsyncThunk(
-//     'REJECT_JOB',
-//     async (jobId) => {
-//         try {
-//             const response = await fetch(`http://localhost:5001/job-list/${jobId}`, {
-//                 method: 'DELETE'
-//             });
-
-//             if (!response.ok) {
-//                 throw new Error('Failed to delete job from the database');
-//             }
-
-//             return jobId;
-//         } catch (error) {
-//             throw new Error('Failed to delete job from the database');
-//         }
-//     }
-// );
 
 
 

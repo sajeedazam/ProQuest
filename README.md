@@ -1,4 +1,5 @@
 # Pro Quest
+Pro Quest is an irresistable online application for households', whether you are finding it hard to manage your houses due to extensive stressful job, or  
 
 ## Project Description
 - **Consumers who are looking for professionals from the comfort of their home.**
@@ -11,16 +12,15 @@
 ## Project Requirments:
 
 - **Minimal Requirments**
-  - **Signup for customers, and professionals**
+  - **Signup for customers**
   - **Customer Side : (Includes Bookings, Cancelling Bookings, Payment (Online))**
   - **Professional Side: (Accepted Jobs, Rejected Jobs)**
   - **Database to hold Customer and Professional Data**
 
 - **Standard Requirments** 
-  - **Ratings for the professional**
   - **Upcoming Jobs for the professional**
   - **Offers for customers if they go for more than one service from a certain professional**
-  - **Customer's ability to choose a professional with a certain radius of the provided zip code**
+  - **Since our services are restricted to Vancouver, customers can check whether our services are available near them by entering their zip code.**
   - **Time Slots for the service**
   - **Cash on Delivery (Only if the professional accepts COD)**
 
