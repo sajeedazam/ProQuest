@@ -1,5 +1,5 @@
 const getJobs = async () => {
-  const res = await fetch('http://localhost:5001/cart-list',
+  const res = await fetch('https://proquest-server.onrender.com/cart-list',
     {
       method: 'GET'
     });
@@ -8,7 +8,7 @@ const getJobs = async () => {
 };
 
 const getNotifs = async () => {
-  const res = await fetch('http://localhost:5001/job-list',
+  const res = await fetch('https://proquest-server.onrender.com/job-list',
     {
       method: 'GET'
     });
@@ -17,7 +17,7 @@ const getNotifs = async () => {
 };
 
 const addJobs = async (category, name, time, customerName, phone, price) => {
-  const response = await fetch('http://localhost:5001/cart-list', {
+  const response = await fetch('https://proquest-server.onrender.com/cart-list', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ const addJobs = async (category, name, time, customerName, phone, price) => {
 
 
 const deleteJobs = async (itemId) => {
-  const response = await fetch(`http://localhost:5001/job-list/${itemId}`, {
+  const response = await fetch(`https://proquest-server.onrender.com/job-list/${itemId}`, {
     method: 'DELETE'
   });
 
@@ -50,7 +50,7 @@ const deleteJobs = async (itemId) => {
 }
 
 const getAccepts = async () => {
-  const res = await fetch('http://localhost:5001/transferred-accepts',
+  const res = await fetch('https://proquest-server.onrender.com/transferred-accepts',
     {
       method: 'GET'
     });
@@ -59,7 +59,7 @@ const getAccepts = async () => {
 };
 
 const getComplete = async () => {
-  const res = await fetch('http://localhost:5001/transferred-completes',
+  const res = await fetch('https://proquest-server.onrender.com/transferred-completes',
     {
       method: 'GET'
     });
@@ -69,7 +69,7 @@ const getComplete = async () => {
 
 const transferData = async () => {
   try {
-    const response = await fetch('http://localhost:5001/transfer-data', {
+    const response = await fetch('https://proquest-server.onrender.com/transfer-data', {
       method: 'POST',
     });
 
@@ -85,7 +85,7 @@ const transferData = async () => {
 
 const completedTransfer = async (jobId) => {
   try {
-    const response = await fetch(`http://localhost:5001/transfer-completed-data/${jobId}`, {
+    const response = await fetch(`https://proquest-server.onrender.com/transfer-completed-data/${jobId}`, {
       method: 'POST',
     });
 
@@ -101,7 +101,7 @@ const completedTransfer = async (jobId) => {
 
 const acceptTransfer = async (jobId) => {
   try {
-    const response = await fetch(`http://localhost:5001/transfer-accepted-data/${jobId}`, {
+    const response = await fetch(`https://proquest-server.onrender.com/transfer-accepted-data/${jobId}`, {
       method: 'POST',
     });
 
@@ -117,7 +117,7 @@ const acceptTransfer = async (jobId) => {
 
 const getAmount = async () => {
   try {
-    const response = await fetch(`http://localhost:5001/amount-earned`, {
+    const response = await fetch(`https://proquest-server.onrender.com/amount-earned`, {
       method: 'GET',
     });
 
