@@ -9,13 +9,11 @@ const jobSchema = new mongoose.Schema({
     time: { type: String, required: true },
     customerName: { type: String, required: true },
     phone: { type: Number, required: true },
-    jobState: { type: String, required: false, default: "PENDING" },
     price: {type: Number, required: true}
 }
-
 );
 
-const Cart = mongoose.model('Cart', jobSchema);
+const Cart = mongoose.model('carts', jobSchema);
 const uri = process.env.MONGODB_CONNECTION_STRING;
 
 mongoose.connect(`${uri}`, {

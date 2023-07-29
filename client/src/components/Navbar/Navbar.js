@@ -1,5 +1,3 @@
-// NavBar.js
-
 import React from "react";
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
@@ -18,7 +16,7 @@ function NavBar({user, clearUser}) {
         .catch((error) => {
             console.log(error);
         });
-        clearUser()
+        clearUser();
     }
 
     return (

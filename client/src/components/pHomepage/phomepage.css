@@ -8,13 +8,13 @@
 }
 
 .pHomepage-image {
-  flex: 0 0 60%;
+  flex: 0 0 50%;
   background: url('https://images.pexels.com/photos/4968382/pexels-photo-4968382.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4968382.jpg&fm=jpg') no-repeat center center;
   background-size: cover;
 }
 
 .pHomepage-container {
-  width: 40%;
+  flex: 0 0 50%;
   background-color: #000;
   color: #fff;
   display: flex;
@@ -45,10 +45,16 @@
   cursor: pointer;
   border-radius: 5px;
   background: linear-gradient(93deg, #FF9D6C, #FF6A88);
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   margin: 15px 0;
   text-decoration: none;
+
+  width: 220px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover,
@@ -62,8 +68,9 @@
   padding: 20px;
   border-radius: 10px;
   margin-top: 30px;
-  max-height: 300px; /* Set the maximum height for the container */
-  overflow-y: auto; 
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pHomepage-jobs-container h2 {
@@ -71,28 +78,51 @@
   font-size: 22px;
   color: #000;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .pHomepage-jobs-container p {
   margin: 5px;
   font-size: 18px;
   color: #000;
+  text-align: left;
 }
 
 .pHomepage-jobs-container button {
   font-size: 1.2em;
   color: #ffffff;
-  padding: 15px 30px;
+  padding: 12px 24px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   background: linear-gradient(93deg, #FF9D6C, #FF6A88);
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
+  width: 100%; 
 }
 
 .pHomepage-jobs-container button:hover {
   background: linear-gradient(93deg, #FF6A88, #FF9D6C);
   transform: scale(1.05);
+}
+
+
+.jobs-section {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.upcoming-job-container,
+.completed-job-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-link {
+  align-items: left;
 }

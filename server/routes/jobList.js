@@ -9,7 +9,8 @@ const jobSchema = new mongoose.Schema({
   name: { type: String, required: true },
   time: { type: String, required: true },
   customerName: { type: String, required: true },
-  phone: { type: Number, required: true }
+  phone: { type: Number, required: true },
+  price: {type: Number, required: true}
   // jobState: { type: String, required: false, default: "PENDING" }
 });
 
@@ -124,6 +125,24 @@ router.get("/transferred-completes", async (req, res) => {
   }
 });
 
+router.get("/amount-earned", async (req, res)=> {
+  try {
+    const completedData = await Complete.find().select('price');
+    let count = 0;
+    if (completedData) {
+      completedData.forEach((data) => {
+        count += data.price;
+      });
+    }
+
+    jsObj = {"count": count};
+      res.status(200).json(jsObj);
+      // console.log(count);
+    } catch (error) {
+    console.error(error);
+    res.status(500).json({error: "An error occurred while fetching data from finishes"});
+  }
+});
 
 // router.post('/job/accept', async (req, res) => {
 

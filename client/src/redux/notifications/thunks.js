@@ -112,6 +112,17 @@ export const checkoutAsync = createAsyncThunk(
     }
 );
 
+export const getAmountAsync = createAsyncThunk(
+    'GET_AMOUNT',
+    async () => {
+        try {
+            return await jobService.getAmount();
+        } catch (error) {
+            throw new Error('Failed to get from the database');
+        }
+    }
+);
+
 // export const acceptJobAsync = createAsyncThunk(
 //     'ACCEPT_JOB',
 //     async (jobId) => {

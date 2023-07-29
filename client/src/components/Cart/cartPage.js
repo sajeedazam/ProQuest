@@ -22,7 +22,8 @@ function CartPage() {
         {jobs && jobs.length > 0 ? jobs.map((item, index) => (
           <li key={index}>
             <strong> {item.name} </strong>
-            <ItemDeleteButton item={item._id} />
+            <strong> Price: ${item.price} <ItemDeleteButton item={item._id} /></strong>
+            
           </li>
         )) : <p>Cart empty</p>}
       </ul>

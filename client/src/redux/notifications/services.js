@@ -115,6 +115,22 @@ const getComplete = async () => {
     }
   }; 
   
+  const getAmount = async () => {
+    try {
+      const response = await fetch(`http://localhost:5001/amount-earned`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('get data failed');
+    }
+    
+    return response.json();
+    } catch (error) {
+      throw new Error(error.message);
+    }
+
+  };
 
 export default {
     getJobs, 
@@ -125,5 +141,6 @@ export default {
      acceptTransfer,
      getAccepts,
      completedTransfer,
-     getComplete
+     getComplete,
+     getAmount
 }

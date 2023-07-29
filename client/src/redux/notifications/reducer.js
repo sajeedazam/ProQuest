@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync, getAcceptedAsync, getCompletedAsync } from './thunks';
+import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync, getAcceptedAsync, getCompletedAsync, getAmountAsync } from './thunks';
 // import {
 //   acceptJobAsync,
 //   rejectJobAsync
@@ -17,9 +17,10 @@ const INITIAL_STATE = {
   addJobs: REQUEST_STATE.IDLE,
   getComplete: REQUEST_STATE.IDLE,
   getAccepts:REQUEST_STATE.IDLE,
+  getAmount: REQUEST_STATE.IDLE,
   error: null,
-  totalPrice: 0,
-  earnedAmount: 0
+  // totalPrice: 0,
+  // earnedAmount: 0
 };
 
 const jobReducer = createSlice({
@@ -62,7 +63,7 @@ const jobReducer = createSlice({
       .addCase(addJobsAsync.fulfilled, (state, action) => {
         state.addJobs = REQUEST_STATE.FULFILLED;
         state.items.push(action.payload);
-        state.totalPrice += action.payload.price;  // Assuming payload includes price
+        // state.totalPrice += action.payload.price;  // Assuming payload includes price
       })
     
       .addCase(addJobsAsync.rejected, (state, action) => {
@@ -76,13 +77,13 @@ const jobReducer = createSlice({
       .addCase(deleteItemAsync.fulfilled, (state, action) => {
         state.deleteItem = REQUEST_STATE.FULFILLED;
         const itemId = action.payload._id;
-        state.items = state.items.filter((item) => {
-          if (item._id === itemId) {
-            state.totalPrice -= item.price;
-            return false;
-          }
-          return true;
-        });
+        // state.items = state.items.filter((item) => {
+        //   if (item._id === itemId) {
+        //     state.totalPrice -= item.price;
+        //     return false;
+        //   }
+        //   return true;
+        // });
     })
       .addCase(deleteItemAsync.rejected, (state, action) => {
         state.deleteItem = REQUEST_STATE.REJECTED;
@@ -126,6 +127,21 @@ const jobReducer = createSlice({
         state.getComplete = REQUEST_STATE.REJECTED;
         state.error = action.error;
       })
+
+      .addCase(getAmountAsync.pending, (state) => {
+        state.getAmount = REQUEST_STATE.PENDING;
+        state.error = null;
+      })
+      .addCase(getAmountAsync.fulfilled, (state, action) => {
+        state.getAmount = REQUEST_STATE.FULFILLED;
+        state.amount = action.payload;
+      })
+      .addCase(getAmountAsync.rejected, (state, action) => {
+        state.getAmount = REQUEST_STATE.REJECTED;
+        state.error = action.error;
+      })
+
+
 
       // .addCase(acceptJobAsync.pending, (state) => {
       //   state.addJobs = REQUEST_STATE.PENDING;
