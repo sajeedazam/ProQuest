@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ItemDeleteButton from './delete';
 import { getJobsAsync } from '../../redux/notifications/thunks';
@@ -10,7 +10,7 @@ function CartPage() {
   const jobs = useSelector(state => state.jobs.items);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getJobsAsync());
   }, []);
 
@@ -22,13 +22,11 @@ function CartPage() {
         {jobs && jobs.length > 0 ? jobs.map((item, index) => (
           <li key={index}>
             <strong> {item.name} </strong>
-            <strong> Price: ${item.price} <ItemDeleteButton item={item._id} /></strong>
-            
+            <strong> Price: ${item.price} <ItemDeleteButton item={item._id} /></strong>        
           </li>
         )) : <p>Cart empty</p>}
       </ul>
       <Checkout />
-      
     </div>
   );
 }

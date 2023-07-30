@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 import React from 'react';
-import { deleteItemAsync } from '../../redux/notifications/thunks';
+import { deleteCartItemAsync } from '../../redux/notifications/thunks';
 
 export default function ItemDeleteButton({ item }) {
     const dispatch = useDispatch();
 
-    const handleDelete = () => {
-        dispatch(deleteItemAsync(item));
+    const handleDelete = async () => {
+        await dispatch(deleteCartItemAsync(item));
     };
 
     return (

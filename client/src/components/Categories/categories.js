@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../Categories/categories.css';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { addJobsAsync } from '../../redux/notifications/thunks';
-// import { addToCart } from '../../redux/cartActions';
 
   const categories = [
     { name: 'Saloon', image: 'https://img.freepik.com/free-photo/client-doing-hair-cut-barber-shop-salon_1303-20861.jpg', price: 30},

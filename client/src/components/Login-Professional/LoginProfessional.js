@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import "./LoginProfessional.css";
 import logo from "../../proquest-logo-1.jpg";
 import { auth } from '../firebase';
-import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 

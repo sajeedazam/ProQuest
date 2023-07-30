@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Categories from '../Categories/categories';
-import About from '../About/about';
-import City from '../City/city';
 import NavBar from '../Navbar/Navbar';
 import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -27,10 +25,7 @@ function Dashboard() {
     <div>
       <NavBar user={user} />    
       <Categories />
-
       <button onClick={handleChatButtonClick}>Chat with Professional</button>
-      {/* <City /> */}
-      {/* <About /> */}
     </div>
   ) : (
     <div>Loading...</div>  

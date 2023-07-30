@@ -49,6 +49,20 @@ const deleteJobs = async (itemId) => {
   return data;
 }
 
+const deleteCart = async (itemId) => {
+  const response = await fetch(`https://proquest-server.onrender.com/cart-list/${itemId}`, {
+    method: 'DELETE'
+  });
+
+  const data = await response.json();
+  if (!response.ok) {
+    const errorMsg = data && data.message ? data.message : 'Unknown error';
+    throw new Error(errorMsg);
+  }
+
+  return data;
+}
+
 const getAccepts = async () => {
   const res = await fetch('https://proquest-server.onrender.com/transferred-accepts',
     {
@@ -142,5 +156,6 @@ export default {
   getAccepts,
   completedTransfer,
   getComplete,
-  getAmount
+  getAmount,
+  deleteCart
 }

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './phomepage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { clearUser } from "../../redux/userActions";

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync, getAcceptedAsync, getCompletedAsync, getAmountAsync } from './thunks';
+import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync, getAcceptedAsync, getCompletedAsync, getAmountAsync, deleteCartItemAsync } from './thunks';
 const REQUEST_STATE = {
   IDLE: 'IDLE',
   PENDING: 'PENDING',
@@ -56,9 +56,24 @@ const jobReducer = createSlice({
       .addCase(deleteItemAsync.fulfilled, (state, action) => {
         state.deleteItem = REQUEST_STATE.FULFILLED;
         const itemId = action.payload._id;
+        state.items = state.items.filter((item) => item._id !== itemId);
       })
       .addCase(deleteItemAsync.rejected, (state, action) => {
         state.deleteItem = REQUEST_STATE.REJECTED;
+        state.error = action.error;
+      })
+
+      .addCase(deleteCartItemAsync.pending, (state) => {
+        state.deleteCartItem = REQUEST_STATE.PENDING;
+        state.error = null;
+      })
+      .addCase(deleteCartItemAsync.fulfilled, (state, action) => {
+        state.deleteCartItem = REQUEST_STATE.FULFILLED;
+        const itemId = action.payload._id;
+        state.items = state.items.filter((item) => item._id !== itemId);
+      })
+      .addCase(deleteCartItemAsync.rejected, (state, action) => {
+        state.deleteCartItem = REQUEST_STATE.REJECTED;
         state.error = action.error;
       })
 

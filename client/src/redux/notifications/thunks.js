@@ -45,6 +45,17 @@ export const deleteItemAsync = createAsyncThunk(
     }
 );
 
+export const deleteCartItemAsync = createAsyncThunk(
+    'DELETE_ITEM',
+    async (itemId) => {
+        try {
+            return await jobService.deleteCart(itemId);
+        } catch (error) {
+            throw new Error('Failed to delete');
+        }
+    }
+);
+
 export const acceptAsync = createAsyncThunk(
     'ACCEPT',
     async (jobId) => {
