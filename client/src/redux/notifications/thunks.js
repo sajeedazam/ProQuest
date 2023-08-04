@@ -13,12 +13,12 @@ export const getJobsAsync = createAsyncThunk(
 );
 
 export const getNotifsAsync = createAsyncThunk(
-    'GET_JOBS',
+    'GET_NOTIFS',
     async () => {
         try {
             return await jobService.getNotifs();
         } catch (error) {
-            throw new Error('Failed to retrieve jobs from the database');
+            throw new Error('Failed to retrieve notifications from the database');
         }
     }
 );
@@ -35,26 +35,27 @@ export const addJobsAsync = createAsyncThunk(
 );
 
 export const deleteItemAsync = createAsyncThunk(
-    'DELETE_ITEM',
+    'DELETE_JOB_ITEM',
     async (itemId) => {
         try {
             return await jobService.deleteJobs(itemId);
         } catch (error) {
-            throw new Error('Failed to delete');
+            throw new Error('Failed to delete job');
         }
     }
 );
 
 export const deleteCartItemAsync = createAsyncThunk(
-    'DELETE_ITEM',
+    'DELETE_CART_ITEM',
     async (itemId) => {
         try {
             return await jobService.deleteCart(itemId);
         } catch (error) {
-            throw new Error('Failed to delete');
+            throw new Error('Failed to delete cart item');
         }
     }
 );
+
 
 export const acceptAsync = createAsyncThunk(
     'ACCEPT',
