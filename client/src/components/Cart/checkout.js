@@ -1,21 +1,29 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { checkoutAsync } from '../../redux/notifications/thunks';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './checkout.css'; 
+import PaymentForm from '../PaymentForm/PaymentForm'; // Import the PaymentForm component
 
 function Checkout() {
-  const dispatch = useDispatch();
   const jobs = useSelector(state => state.jobs.items) || [];
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleCheckout = () => {
-    dispatch(checkoutAsync());
-    window.location.reload();
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   return (
     <div className="checkout-container">
       {jobs.length > 0 && (
-        <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
+        <div>
+          <button className="checkout-button" onClick={handleCheckout}>
+            Checkout
+          </button>
+          <PaymentForm isOpen={modalIsOpen} onRequestClose={closeModal} />
+        </div>
       )}
     </div>
   );
