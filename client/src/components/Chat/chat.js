@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { collection, addDoc, query, onSnapshot, orderBy } from '@firebase/firestore';
-import { db as firestore, auth } from "../firebase-chat";
-import '../Chat/chat.css'
+import '../Chat/chat.css';
+ import { io } from 'socket.io-client';
+const socket = io('http://localhost:5002');
+// Create a socket instance
+// Make sure to replace this with your server URL
+
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -13,34 +16,50 @@ function Chat() {
   }
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(collection(firestore, 'messages'), orderBy('timestamp')), 
-      snapshot => {
-        setMessages(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() })));
-      }
-    );
-    return () => unsubscribe();
+    const handleNewMessage = (message) => {
+      console.log("Message Received!!", message)
+      setMessages((oldMessages) => [...oldMessages, message]);
+    };
+  
+    const handlePastMessages = (pastMessages) => {
+      console.log({ pastMessages });
+      setMessages(pastMessages);
+    };
+  
+    socket.on('message', handleNewMessage);
+    socket.on('pastMessages', handlePastMessages);
+  
+    // Clean up function
+    return () => {
+      socket.off('message', handleNewMessage);
+      socket.off('pastMessages', handlePastMessages);
+    };
   }, []);
+
 
   useEffect(scrollToBottom, [messages]);
 
   const handleSend = async (e) => {
     e.preventDefault();
+  
+    console.log("New Message!!", newMessage)
+  
     if (newMessage.trim() !== '') {
-      await addDoc(collection(firestore, 'messages'), {
-        message: newMessage,
-        timestamp: new Date(), // for ordering the messages
-      });
+      // Emit the 'message' event to the server
+      socket.emit('message', newMessage);
+      console.log("Resetting new message!!")
       setNewMessage('');
     }
   };
+
+  console.log(messages);
 
   return (
     <div className="chat">
       <h2>Chat</h2>
       <div className="chat-messages">
-        {messages.map(({ id, data: { message } }) => (
-          <div key={id} className="chat-message">
+        {messages.map((message,idx) => (
+          <div key={idx} className="chat-message">
             <p>{message}</p>
           </div>
         ))}
