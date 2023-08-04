@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { checkoutAsync } from '../../redux/notifications/thunks';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Modal from 'react-modal';
+import './PaymentForm.css'; // Import the CSS file
 
 function PaymentForm({ isOpen, onRequestClose }) {
   const [error, setError] = React.useState(null);
@@ -40,14 +41,18 @@ function PaymentForm({ isOpen, onRequestClose }) {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <Modal 
+      isOpen={isOpen} 
+      onRequestClose={onRequestClose} 
+      className="modal-content"
+    >
       <h2>Enter Credit Card Information</h2>
       <form onSubmit={handleSubmit}>
-        <CardElement />
-        {error && <div>{error}</div>}
+        <CardElement className="StripeElement"/>
+        {error && <div className="error">{error}</div>}
         <button type="submit">Pay</button>
       </form>
-      <button onClick={onRequestClose}>Close</button>
+      <button onClick={onRequestClose} className="close-button">Close</button>
     </Modal>
   );
 }
