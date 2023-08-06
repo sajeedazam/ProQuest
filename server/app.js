@@ -12,7 +12,7 @@ var geocode = require('./routes/geocode');
 
 var app = express();
 
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({origin: 'https://proquest.onrender.com'}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
