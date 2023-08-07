@@ -27,6 +27,7 @@ const Login = () => {
 
     return (
         <div className="login-homepage">
+            <Link to="/" className='back-button'> {"Home"} </Link>  
             <div className="login-logo-container">
                 <img src={logo} alt="Logo" />
             </div>

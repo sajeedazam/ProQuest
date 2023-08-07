@@ -69,7 +69,7 @@ const jobReducer = createSlice({
       .addCase(deleteItemAsync.fulfilled, (state, action) => {
         state.deleteItem = REQUEST_STATE.FULFILLED;
         const itemId = action.payload._id;
-        state.items = state.items.filter((item) => item._id !== itemId);
+        state.notifs = state.notifs.filter((item) => item._id !== itemId);
       })
       .addCase(deleteItemAsync.rejected, (state, action) => {
         state.deleteItem = REQUEST_STATE.REJECTED;

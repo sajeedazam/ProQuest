@@ -16,7 +16,7 @@ function CartPage() {
 
   return (
     <div className="cartPage">
-      <Link to="/dashboard" className='mt-3'>Back</Link>      
+      <Link to="/dashboard" className='mt-3'>Dashboard</Link>      
       <h1>Cart</h1>
       <ul className='addedItems'>
         {jobs && jobs.length > 0 ? jobs.map((item, index) => (

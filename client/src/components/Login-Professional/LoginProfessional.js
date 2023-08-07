@@ -5,6 +5,7 @@ import logo from "../../proquest-logo-1.png";
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginProfessional = () => {
     const navigate = useNavigate();
@@ -25,6 +26,7 @@ const LoginProfessional = () => {
 
     return (
         <div className="loginProfessionalContainer">
+            <Link to="/" className='back-button-pro'> {"Home"} </Link>  
             <section className='loginProfessionalSection'>
                 <div className="loginProfessionalLeftData">
                     <h3 className='loginProfessionalTitle'>Sign In As Professional</h3>

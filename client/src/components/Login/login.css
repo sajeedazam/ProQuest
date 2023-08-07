@@ -8,6 +8,16 @@
     background-size: cover;
 }
 
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color:  #FF9D6C;
+  text-decoration: none;
+  font-size: 18px;
+}
+
 .login-content-container {
   background-color: rgba(0, 0, 0, 0.7);
   width: 60%;
