@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cors = require('cors');
 var http = require('http');
 var mongoose = require('mongoose');
-require('dotenv').config();
 
 var jobsRouter = require('./routes/jobList');
 var cartRouter = require('./routes/cart');
@@ -14,10 +13,10 @@ var geocode = require('./routes/geocode');
 var app = express();
 
 const corsOptions = {
-  origin: "https://proquest.onrender.com"
-}
+  origin: "https://proquest.onrender.com", // Update with the deployed frontend URL
+};
+
 app.use(cors(corsOptions));
-app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,62 +28,49 @@ app.use('/', cartRouter);
 app.use('/', geocode);
 
 const uri = process.env.MONGODB_CONNECTION_STRING;
-
 mongoose.connect(`${uri}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
 var messageSchema = mongoose.Schema({
+  user: String,
   message: String
 });
 
 var Message = mongoose.model('Message', messageSchema);
 
 const server = http.Server(app);
-// const server = http.createServer(app);
 server.listen(5002);
-// server.listen("https://proquest.onrender.com");
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "*",
+    origin: "https://proquest.onrender.com", // Update with the deployed frontend URL
     methods: ["GET", "POST"]
   }
 });
-// const socketIO = require('socket.io');
-
-// const io = socketIO(server, {
-//   cors: {
-//     origin: "https://proquest.onrender.com",
-//     methods: ['GET', 'POST'],
-//   },
-// });
 
 io.on('connection', async function (socket) {
   console.log('client connected!')
 
-  const pastMessages = await Message.find({})
-  socket.emit('pastMessages', pastMessages.map(m => m.message));
+  const pastMessages = await Message.find({});
+  socket.emit('pastMessages', pastMessages);
 
   // Use process.nextTick to allow the 'pastMessages' event to be sent first
   process.nextTick(() => {
-    socket.on('message', function (message) {
-      console.log("Message", message)
-      var newMessage = new Message({ message: message });
-
+    socket.on('message', function (data) {
+      console.log("Message from:", data.user, "Message:", data.message);
+      var newMessage = new Message({ user: data.user, message: data.message });
+    
       try {
         newMessage.save();
-        console.log("Emit to all!")
-        io.emit('message', message);  // Emit to all connected sockets
+        console.log("Emit to all!");
+        io.emit('message', data);  // Emit to all connected sockets
       } catch (error) {
         console.log(error);
       }
     });
   });
-});
-
-app.get('/socket.io/', (req, res) => {
 });
 
 module.exports = app;
