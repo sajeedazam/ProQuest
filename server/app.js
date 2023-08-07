@@ -56,7 +56,7 @@ const socketIO = require('socket.io');
 
 const io = socketIO(server, {
   cors: {
-    origin: 'https://proquest.onrender.com',
+    origin: 'https://proquest.onrender.com/chat',
     methods: ['GET', 'POST'],
   },
 });

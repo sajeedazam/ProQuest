@@ -15,6 +15,15 @@ mongoose.connect(`${uri}`, {
   useUnifiedTopology: true
 });
 
+const socketIO = require('socket.io');
+
+const io = socketIO(server, {
+  cors: {
+    origin: 'https://proquest.onrender.com',
+    methods: ['GET', 'POST'],
+  },
+});
+
 router.get('/past-messages', async function (req, res, next) {
   try {
     const pastMessages = await Message.find({});
