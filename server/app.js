@@ -43,23 +43,23 @@ var Message = mongoose.model('Message', messageSchema);
 
 // const server = http.Server(app);
 const server = http.createServer(app);
-// server.listen(5001);
-server.listen("https://proquest.onrender.com");
+server.listen(5001);
+// server.listen("https://proquest.onrender.com");
 
-// const io = require("socket.io")(server, {
-//   cors: {
-//     origin: "*",
-//     methods: ["GET", "POST"]
-//   }
-// });
-const socketIO = require('socket.io');
-
-const io = socketIO(server, {
+const io = require("socket.io")(server, {
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST'],
-  },
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
 });
+// const socketIO = require('socket.io');
+
+// const io = socketIO(server, {
+//   cors: {
+//     origin: "https://proquest.onrender.com",
+//     methods: ['GET', 'POST'],
+//   },
+// });
 
 io.on('connection', async function (socket) {
   console.log('client connected!')
@@ -85,8 +85,6 @@ io.on('connection', async function (socket) {
 });
 
 app.get('/socket.io/', (req, res) => {
-  // This route handler can be left empty as it is only needed to prevent the error.
-  // Socket.IO will handle WebSocket connections automatically, and you don't need to handle this route explicitly.
 });
 
 module.exports = app;
