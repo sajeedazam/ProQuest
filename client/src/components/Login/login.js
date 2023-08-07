@@ -4,7 +4,7 @@ import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import logo from "../../proquest-logo-1.jpg";
+import logo from "../../proquest-logo-1.png";
 import './login.css';
 
 const Login = () => {

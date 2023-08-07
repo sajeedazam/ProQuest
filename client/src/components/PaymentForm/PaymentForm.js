@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { checkoutAsync } from '../../redux/notifications/thunks';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkoutAsync, getJobsAsync } from '../../redux/notifications/thunks';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Modal from 'react-modal';
 import './PaymentForm.css'; // Import the CSS file
@@ -10,6 +10,8 @@ function PaymentForm({ isOpen, onRequestClose }) {
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
+  const cart = useSelector(state => state.jobs.items);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +36,8 @@ function PaymentForm({ isOpen, onRequestClose }) {
       setError(error.message);
     } else {
       const paymentMethodId = paymentMethod.id;
-      dispatch(checkoutAsync(paymentMethodId)); // call checkoutAsync after payment is successful
+      await dispatch(checkoutAsync(paymentMethodId)); // call checkoutAsync after payment is successful
+      await dispatch(getJobsAsync());
       onRequestClose();
       // window.location.reload(); // Refresh the page after successful payment and checkout
     }

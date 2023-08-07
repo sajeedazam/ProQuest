@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Form from 'react-bootstrap/Form';
 import "./LoginProfessional.css";
-import logo from "../../proquest-logo-1.jpg";
+import logo from "../../proquest-logo-1.png";
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";

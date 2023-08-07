@@ -24,18 +24,18 @@ const jobReducer = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(getNotifsAsync.pending, (state) => {
-      state.getJobs = REQUEST_STATE.PENDING;
-      state.error = null;
-    })
-    .addCase(getNotifsAsync.fulfilled, (state, action) => {
-      state.getJobs = REQUEST_STATE.FULFILLED;
-      state.notifs = action.payload
-    })
-    .addCase(getNotifsAsync.rejected, (state, action) => {
-      state.getJobs = REQUEST_STATE.REJECTED;
-      state.error = action.error;
-    })
+      .addCase(getNotifsAsync.pending, (state) => {
+        state.getJobs = REQUEST_STATE.PENDING;
+        state.error = null;
+      })
+      .addCase(getNotifsAsync.fulfilled, (state, action) => {
+        state.getJobs = REQUEST_STATE.FULFILLED;
+        state.notifs = action.payload
+      })
+      .addCase(getNotifsAsync.rejected, (state, action) => {
+        state.getJobs = REQUEST_STATE.REJECTED;
+        state.error = action.error;
+      })
 
       .addCase(getJobsAsync.pending, (state) => {
         state.getJobs = REQUEST_STATE.PENDING;
