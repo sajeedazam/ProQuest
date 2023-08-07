@@ -52,8 +52,13 @@ const server = http.createServer(app);
 //   }
 // });
 const socketIO = require('socket.io');
-const io = socketIO(server);
-io.origins('https://proquest.onrender.com');
+
+const io = socketIO(server, {
+  cors: {
+    origin: 'https://proquest.onrender.com',
+    methods: ['GET', 'POST'],
+  },
+});
 
 io.on('connection', async function (socket) {
   console.log('client connected!')
