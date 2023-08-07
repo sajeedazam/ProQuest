@@ -83,4 +83,9 @@ io.on('connection', async function (socket) {
   });
 });
 
+app.get('/socket.io/', (req, res) => {
+  // This route handler can be left empty as it is only needed to prevent the error.
+  // Socket.IO will handle WebSocket connections automatically, and you don't need to handle this route explicitly.
+});
+
 module.exports = app;
