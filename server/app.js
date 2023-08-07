@@ -41,16 +41,19 @@ var Message = mongoose.model('Message', messageSchema);
 
 // const server = http.Server(app);
 const server = http.createServer(app);
-server.listen(2002);
-// server.listen(5002);
-// server.listen("https://proquest.onrender.com");
+// server.listen(2002);
+// // server.listen(5002);
+// // server.listen("https://proquest.onrender.com");
 
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"]
-  }
-});
+// const io = require("socket.io")(server, {
+//   cors: {
+//     origin: "*",
+//     methods: ["GET", "POST"]
+//   }
+// });
+const socketIO = require('socket.io');
+const io = socketIO(server);
+io.origins('https://proquest.onrender.com');
 
 io.on('connection', async function (socket) {
   console.log('client connected!')
