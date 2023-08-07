@@ -41,9 +41,9 @@ var messageSchema = mongoose.Schema({
 
 var Message = mongoose.model('Message', messageSchema);
 
-// const server = http.Server(app);
-const server = http.createServer(app);
-server.listen(5001);
+const server = http.Server(app);
+// const server = http.createServer(app);
+server.listen(5002);
 // server.listen("https://proquest.onrender.com");
 
 const io = require("socket.io")(server, {
