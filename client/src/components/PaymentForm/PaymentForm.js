@@ -36,7 +36,7 @@ function PaymentForm({ isOpen, onRequestClose }) {
       const paymentMethodId = paymentMethod.id;
       dispatch(checkoutAsync(paymentMethodId)); // call checkoutAsync after payment is successful
       onRequestClose();
-      window.location.reload(); // Refresh the page after successful payment and checkout
+      // window.location.reload(); // Refresh the page after successful payment and checkout
     }
   };
 
