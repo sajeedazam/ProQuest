@@ -43,8 +43,8 @@ var Message = mongoose.model('Message', messageSchema);
 
 // const server = http.Server(app);
 const server = http.createServer(app);
-server.listen(process.env.PORT||5002);
-// // server.listen("https://proquest.onrender.com");
+// server.listen(5001);
+server.listen("https://proquest.onrender.com");
 
 // const io = require("socket.io")(server, {
 //   cors: {
@@ -56,7 +56,7 @@ const socketIO = require('socket.io');
 
 const io = socketIO(server, {
   cors: {
-    origin: 'https://proquest.onrender.com',
+    origin: '*',
     methods: ['GET', 'POST'],
   },
 });
