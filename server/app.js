@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cors = require('cors');
 var http = require('http');
 var mongoose = require('mongoose');
+require('dotenv').config();
 
 var jobsRouter = require('./routes/jobList');
 var cartRouter = require('./routes/cart');
