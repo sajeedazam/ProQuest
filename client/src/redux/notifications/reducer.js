@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync, getAcceptedAsync, getCompletedAsync, getAmountAsync, deleteCartItemAsync } from './thunks';
+import { getJobsAsync, addJobsAsync, deleteItemAsync, checkoutAsync, getAcceptedAsync, getCompletedAsync, getAmountAsync, deleteCartItemAsync, getNotifsAsync } from './thunks';
 const REQUEST_STATE = {
   IDLE: 'IDLE',
   PENDING: 'PENDING',
@@ -24,6 +24,19 @@ const jobReducer = createSlice({
   },
   extraReducers: (builder) => {
     builder
+    .addCase(getNotifsAsync.pending, (state) => {
+      state.getJobs = REQUEST_STATE.PENDING;
+      state.error = null;
+    })
+    .addCase(getNotifsAsync.fulfilled, (state, action) => {
+      state.getJobs = REQUEST_STATE.FULFILLED;
+      state.notifs = action.payload
+    })
+    .addCase(getNotifsAsync.rejected, (state, action) => {
+      state.getJobs = REQUEST_STATE.REJECTED;
+      state.error = action.error;
+    })
+
       .addCase(getJobsAsync.pending, (state) => {
         state.getJobs = REQUEST_STATE.PENDING;
         state.error = null;

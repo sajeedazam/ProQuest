@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 function JobsList() {
 
   const dispatch = useDispatch();
-  const jobs = useSelector(state => state.jobs.items);
+  const jobs = useSelector(state => state.jobs.notifs);
 
   useEffect(() => {
     dispatch(getNotifsAsync());
