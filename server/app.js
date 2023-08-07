@@ -29,6 +29,7 @@ app.use('/', cartRouter);
 app.use('/', geocode);
 
 const uri = process.env.MONGODB_CONNECTION_STRING;
+
 mongoose.connect(`${uri}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -42,8 +43,7 @@ var Message = mongoose.model('Message', messageSchema);
 
 // const server = http.Server(app);
 const server = http.createServer(app);
-// server.listen(2002);
-// // server.listen(5002);
+server.listen(process.env.PORT||5002);
 // // server.listen("https://proquest.onrender.com");
 
 // const io = require("socket.io")(server, {
@@ -56,7 +56,7 @@ const socketIO = require('socket.io');
 
 const io = socketIO(server, {
   cors: {
-    origin: 'https://proquest-server.onrender.com',
+    origin: 'https://proquest.onrender.com',
     methods: ['GET', 'POST'],
   },
 });
