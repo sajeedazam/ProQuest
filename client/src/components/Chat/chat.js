@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Chat/chat.css';
  import { io } from 'socket.io-client';
 // const socket = io('http://localhost:5002');
-const socket = io('https://proquest.onrender.com');
+const socket = io('https://proquest-server.onrender.com');
 // Create a socket instance
 // Make sure to replace this with your server URL
 
