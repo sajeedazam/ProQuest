@@ -27,7 +27,7 @@ export default function City() {
 
       const data = await response.json();
       const { lat, lng } = data;
-      
+
       setLatitude(lat);
       setLongitude(lng);
       setIsWithinBounds(checkIfWithinBounds(lat, lng));
@@ -56,7 +56,7 @@ export default function City() {
   return (
     <div className="container">
       <form className="form" onSubmit={handlePostalCodeSubmit}>
-        <p>See if our service is available</p>
+        <p>Check if our service is available</p>
         <input
           className="input"
           type="text"
@@ -75,7 +75,7 @@ export default function City() {
       {latitude && longitude && !error && (
         <div className="result">
           <p className={isWithinBounds ? 'within' : 'outside'}>
-            {isWithinBounds ? 'Within boundaries' : 'Outside boundaries'}
+            {isWithinBounds ? 'Services offered!' : 'No services at your area'}
           </p>
         </div>
       )}

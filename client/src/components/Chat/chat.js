@@ -33,8 +33,6 @@ function Chat() {
     };
   }, []);
 
-
-
   useEffect(scrollToBottom, [messages]);
 
   const handleSend = async (e) => {
@@ -53,16 +51,16 @@ function Chat() {
     <div className="chat">
       <h2>Chat</h2>
       <div className="chat-messages">
-      {messages.map((data, idx) => (
-        <div key={idx} className={`chat-message-container ${data.user === auth.currentUser.displayName ? 'right' : 'left'}`}>
-          <div className="chat-username">
-            <strong>{data.user}</strong>
+        {messages.map((data, idx) => (
+          <div key={idx} className={`chat-message-container ${data.user === auth.currentUser.displayName ? 'right' : 'left'}`}>
+            <div className="chat-username">
+              <strong>{data.user}</strong>
+            </div>
+            <div className={`chat-message ${data.user === auth.currentUser.displayName ? 'right' : 'left'}`}>
+              <p>{data.message}</p>
+            </div>
           </div>
-        <div className={`chat-message ${data.user === auth.currentUser.displayName ? 'right' : 'left'}`}>
-          <p>{data.message}</p>
-        </div>
-      </div>
-      ))}
+        ))}
         <div ref={messagesEndRef} />
       </div>
       <form className="chat-form" onSubmit={handleSend}>

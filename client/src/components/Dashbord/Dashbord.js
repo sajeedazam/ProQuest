@@ -4,7 +4,6 @@ import NavBar from '../Navbar/Navbar';
 import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import Chat from '../Chat/chat';
 
 function Dashboard() {
   const [user, setUser] = useState(null);
@@ -23,12 +22,12 @@ function Dashboard() {
 
   return user ? (
     <div>
-      <NavBar user={user} />    
+      <NavBar user={user} />
       <Categories />
       <button onClick={handleChatButtonClick}>Chat with Professional</button>
     </div>
   ) : (
-    <div>Loading...</div>  
+    <div>Loading...</div>
   );
 }
 

@@ -1,27 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 .homepage {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    background: url('pq-homepage.jpg') no-repeat;
-    /* background: size 80px; */
-     background-size: 80%; 
-}
-
-/* .homepage {
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100vw;
-  background: url('pq-homepage.jpg') no-repeat center center;
+  background: url('pq-homepage.jpg') no-repeat;
   background-size: 80%;
-  background-attachment: fixed; 
-} */
+}
 
 .content-container {
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.7);
   width: 20%;
   margin-left: auto;
   padding: 20px;
@@ -34,47 +22,47 @@
 
 .content-container h3 {
   font-family: 'Source Code Pro', monospace;
-  font-size: 30px; /* Increased font-size */
+  font-size: 30px;
   text-align: center;
   color: white;
 }
 
 .content-container p {
   margin: 20px 0;
-  font-size: 20px; /* Increased font-size */
-  font-weight: bold; /* Make the text bold */
+  font-size: 20px;/* Increased font-size */
+  font-weight: bold;/* Make the text bold */
 }
 
-.content-container input, .content-container button {
-  padding: 12px; /* Increased padding */
-  font-size: 18px; /* Increased font-size */
+.content-container input,
+.content-container button {
+  padding: 12px;/* Increased padding */
+  font-size: 18px;/* Increased font-size */
   width: 100%;
   margin-bottom: 10px;
 }
 
 .homepage .ant-btn {
-  color: #FFF; /* Make the button text white */
-  background-color: #222; /* Darker background */
+  color: #FFF;/* Make the button text white */
+  background-color: #222;/* Darker background */
   border: none;
   padding: 10px 20px;
-  font-size: 18px; /* Increased font-size */
-  width: 100%; /* Full-width buttons */
-  height: 60px; /* Fixed height */
-  margin-bottom: 20px; /* Increased bottom margin */
-  text-decoration: none; /* Remove underline from Link */
-  display: flex; /* Flex display */
-  justify-content: center; /* Center align text */
-  align-items: center; /* Center align text */
-  transition: transform 0.3s ease-in-out; /* Smooth transform transition */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add some shadow to make the buttons "pop" */
+  font-size: 18px;/* Increased font-size */
+  width: 100%;/* Full-width buttons */
+  height: 60px;/* Fixed height */
+  margin-bottom: 20px;/* Increased bottom margin */
+  text-decoration: none;/* Remove underline from Link */
+  display: flex;/* Flex display */
+  justify-content: center;/* Center align text */
+  align-items: center;/* Center align text */
+  transition: transform 0.3s ease-in-out;/* Smooth transform transition */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);/* Add some shadow to make the buttons "pop" */
 }
 
 .homepage .ant-btn:hover {
-  background-color: #333; /* Slightly lighter on hover */
-  transform: scale(1.1); /* Scale up when hovered */
+  background-color: #333;/* Slightly lighter on hover */
+  transform: scale(1.1);/* Scale up when hovered */
 }
 
-/* Enhanced input box */
 .homepage input[type='text'] {
   padding: 10px;
   width: 100%;
@@ -82,7 +70,7 @@
   border-radius: 5px;
   font-size: 18px; /* Increased font-size */
   margin-bottom: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add some shadow to make the input "pop" */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);/* Add some shadow to make the input "pop" */
 }
 
 .homepage input[type='text']:focus {

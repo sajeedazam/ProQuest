@@ -1,44 +1,44 @@
 .jobs-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 50px;
-  }
-  
-  .job-card {
-    width: 90%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .job-card h2 {
-    margin: 0;
-    color: #333;
-    font-size: 1.3em;
-    margin-bottom: 10px;
-  }
-  
-  .job-card button {
-    padding: 5px 15px;
-    border: none;
-    border-radius: 5px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    margin-right: 5px;
-    background-color: #007BFF;
-    margin-bottom: 5px;
-  }
-  
-  .job-card button:first-child {
-    background-color: #007BFF; /* Bootstrap primary color */
-  }
-  
-  .job-card button:last-child {
-    background-color: #DC3545; /* Bootstrap danger color */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.job-card {
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.job-card h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.job-card button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-right: 5px;
+  background-color: #007BFF;
+  margin-bottom: 5px;
+}
+
+.job-card button:first-child {
+  background-color: #007BFF;/* Bootstrap primary color */
+}
+
+.job-card button:last-child {
+  background-color: #DC3545;/* Bootstrap danger color */
+}

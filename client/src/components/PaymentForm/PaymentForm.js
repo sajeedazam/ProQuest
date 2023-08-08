@@ -1,17 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { checkoutAsync, getJobsAsync } from '../../redux/notifications/thunks';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Modal from 'react-modal';
-import './PaymentForm.css'; // Import the CSS file
+import './PaymentForm.css';
 
 function PaymentForm({ isOpen, onRequestClose }) {
   const [error, setError] = React.useState(null);
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
-  const cart = useSelector(state => state.jobs.items);
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -36,22 +34,21 @@ function PaymentForm({ isOpen, onRequestClose }) {
       setError(error.message);
     } else {
       const paymentMethodId = paymentMethod.id;
-      await dispatch(checkoutAsync(paymentMethodId)); // call checkoutAsync after payment is successful
+      await dispatch(checkoutAsync(paymentMethodId));
       await dispatch(getJobsAsync());
       onRequestClose();
-      // window.location.reload(); // Refresh the page after successful payment and checkout
     }
   };
 
   return (
-    <Modal 
-      isOpen={isOpen} 
-      onRequestClose={onRequestClose} 
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
       className="modal-content"
     >
       <h2>Enter Credit Card Information</h2>
       <form onSubmit={handleSubmit}>
-        <CardElement className="StripeElement"/>
+        <CardElement className="StripeElement" />
         {error && <div className="error">{error}</div>}
         <button type="submit">Pay</button>
       </form>

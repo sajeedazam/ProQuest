@@ -95,22 +95,22 @@ function onListening() {
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://proquest.onrender.com", 
+    origin: "https://proquest.onrender.com",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
+    allowedHeaders: ["chat-header"],
     credentials: true
   }
 });
 
 const uri = process.env.MONGODB_CONNECTION_STRING;
 mongoose.connect(`${uri}`, {
-useNewUrlParser: true,
-useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 var messageSchema = mongoose.Schema({
-user: String,
-message: String
+  user: String,
+  message: String
 });
 
 var Message = mongoose.model('Message', messageSchema);
@@ -126,11 +126,11 @@ io.on('connection', async function (socket) {
       console.log("Message from:", data.user, "Message:", data.message);
 
       var newMessage = new Message({ user: data.user, message: data.message });
-    
+
       try {
         newMessage.save();
         console.log("Emit to all!");
-        io.emit('message', data); 
+        io.emit('message', data);
       } catch (error) {
         console.log(error);
       }

@@ -12,29 +12,28 @@ function NavBar({ clearUser }) {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
-        setDisplayName(user ? user.displayName : "Guest");
+            setDisplayName(user ? user.displayName : "Guest");
         });
 
-        // Cleanup subscription on unmount
         return () => unsubscribe();
     }, []);
 
     const logout = () => {
         signOut(auth)
-        .then(() => {
-            console.log('User logged out');
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+            .then(() => {
+                console.log('User logged out');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         clearUser()
     }
 
     return (
         <nav className="navbar">
             <div>
-              <div>Signed in as: {displayName}</div>
-              <Cart />
+                <div>Signed in as: {displayName}</div>
+                <Cart />
             </div>
             <Link className="nav-link" to="/" onClick={logout}>Logout</Link>
         </nav>

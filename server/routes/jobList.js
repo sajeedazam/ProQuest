@@ -10,8 +10,7 @@ const jobSchema = new mongoose.Schema({
   time: { type: String, required: true },
   customerName: { type: String, required: true },
   phone: { type: Number, required: true },
-  price: {type: Number, required: true}
-  // jobState: { type: String, required: false, default: "PENDING" }
+  price: { type: Number, required: true }
 });
 
 const Notify = mongoose.model('Notify', jobSchema);
@@ -125,7 +124,7 @@ router.get("/transferred-completes", async (req, res) => {
   }
 });
 
-router.get("/amount-earned", async (req, res)=> {
+router.get("/amount-earned", async (req, res) => {
   try {
     const completedData = await Complete.find().select('price');
     let count = 0;
@@ -135,43 +134,12 @@ router.get("/amount-earned", async (req, res)=> {
       });
     }
 
-    jsObj = {"count": count};
-      res.status(200).json(jsObj);
-      // console.log(count);
-    } catch (error) {
+    jsObj = { "count": count };
+    res.status(200).json(jsObj);
+  } catch (error) {
     console.error(error);
-    res.status(500).json({error: "An error occurred while fetching data from finishes"});
+    res.status(500).json({ error: "An error occurred while fetching data from finishes" });
   }
 });
-
-// router.post('/job/accept', async (req, res) => {
-
-//   console.log(jobSchema)
-//   const { name } = req.body;
-
-
-//   try {
-//     await Notify.updateOne({name}, {jobState:"ACCEPTED"})
-//     res.status(200).send({ success: 'Job accepted and removed from database' });
-//    } catch (error) {
-//     res.status(500).send({ error: 'An error occurred' });
-//    }
-// });
-
-// router.post('/job/reject', async (req, res) => {
-
-
-//   const { name } = req.body;
-
-
-//   try {
-//     await Notify.updateOne({name}, {jobState:"REJECTED"})
-//     res.status(200).send({ success: 'Job accepted and removed from database' });
-//    } catch (error) {
-//     res.status(500).send({ error: 'An error occurred' });
-//    }
-// });
-
-
 
 module.exports = router;

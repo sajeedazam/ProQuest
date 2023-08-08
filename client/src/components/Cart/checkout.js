@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './checkout.css'; 
-import PaymentForm from '../PaymentForm/PaymentForm'; // Import the PaymentForm component
+import PaymentForm from '../PaymentForm/PaymentForm';
 
 function Checkout() {
   const jobs = useSelector(state => state.jobs.items) || [];

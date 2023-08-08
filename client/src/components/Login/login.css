@@ -1,19 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 .login-homepage {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    background: url('https://images5.alphacoders.com/552/552426.jpg');
-    background-size: cover;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: url('https://images5.alphacoders.com/552/552426.jpg');
+  background-size: cover;
 }
-
 
 .back-button {
   position: absolute;
   top: 20px;
   right: 20px;
-  color:  #FF9D6C;
+  color: #FF9D6C;
   text-decoration: none;
   font-size: 18px;
 }
@@ -90,21 +89,21 @@
 }
 
 .login-ant-btn.button {
-    font-size: 1em;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    background: linear-gradient(93deg, #FF9D6C, #FF6A88);
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
+  font-size: 1em;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: linear-gradient(93deg, #FF9D6C, #FF6A88);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
 .login-ant-btn.button-hovered {
-    background: linear-gradient(93deg, #FF6A88, #FF9D6C);
-    border-radius: 5px;
-    font-size: 1em;
-    transform: scale(1.05);
+  background: linear-gradient(93deg, #FF6A88, #FF9D6C);
+  border-radius: 5px;
+  font-size: 1em;
+  transform: scale(1.05);
 }
 
 .login-create-account-btn {

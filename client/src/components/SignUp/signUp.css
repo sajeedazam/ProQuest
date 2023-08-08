@@ -1,65 +1,64 @@
 .sign-in-container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    background: url('https://images5.alphacoders.com/552/552426.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-  
-  .sign-in-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .sign-in-container form h1 {
-    margin-bottom: 30px;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 35px;
-  }
-  
-  .sign-in-container form input {
-    width: 400px;
-    height: 55px;
-    border: none;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 18px;
-  }
-  
-  .sign-in-container form button {
-    margin-top: 30px;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    background: linear-gradient(93deg, #FF9D6C, #FF6A88);
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .sign-in-container form button:hover {
-    background: linear-gradient(93deg, #FF6A88, #FF9D6C);
-    transform: scale(1.05);
-  }
-  
-  .sign-in-container form a {
-    color: #FFF;
-    margin-top: 20px;
-    text-decoration: none;
-  }
-  
-  .sign-in-container form p {
-    color: red;
-    margin-top: 15px;
-  }
-  
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background: url('https://images5.alphacoders.com/552/552426.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.sign-in-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: white;
+}
+
+.sign-in-container form h1 {
+  margin-bottom: 30px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 35px;
+}
+
+.sign-in-container form input {
+  width: 400px;
+  height: 55px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.sign-in-container form button {
+  margin-top: 30px;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  background: linear-gradient(93deg, #FF9D6C, #FF6A88);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.sign-in-container form button:hover {
+  background: linear-gradient(93deg, #FF6A88, #FF9D6C);
+  transform: scale(1.05);
+}
+
+.sign-in-container form a {
+  color: #FFF;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.sign-in-container form p {
+  color: red;
+  margin-top: 15px;
+}
