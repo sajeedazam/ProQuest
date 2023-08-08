@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Chat/chat.css';
  import { io } from 'socket.io-client';
  import { auth } from '../firebase'
- const socket = io('https://proquest-server.onrender.com');
+ const socket = io('http://localhost:5002');
 // Create a socket instance
 // Make sure to replace this with your server URL
 
@@ -48,7 +48,7 @@ function Chat() {
   
     if (authUser && newMessage.trim() !== '') {
       // Include user email along with the message
-      socket.emit('message', { user: authUser.email, message: newMessage });
+      socket.emit('message', { user: authUser.displayName, message: newMessage });
       setNewMessage('');
     }
   };
@@ -59,12 +59,17 @@ function Chat() {
     <div className="chat">
       <h2>Chat</h2>
       <div className="chat-messages">
-        {messages.map((data, idx) => (
-          <div key={idx} className="chat-message">
-          <p><strong>{data.user}:</strong> {data.message}</p>
+      {messages.map((data, idx) => (
+        <div key={idx} className={`chat-message-container ${data.user === auth.currentUser.displayName ? 'right' : 'left'}`}>
+          <div className="chat-username">
+            <strong>{data.user}</strong>
           </div>
-        ))}
-      <div ref={messagesEndRef} />
+        <div className={`chat-message ${data.user === auth.currentUser.displayName ? 'right' : 'left'}`}>
+          <p>{data.message}</p>
+        </div>
+      </div>
+      ))}
+        <div ref={messagesEndRef} />
       </div>
       <form className="chat-form" onSubmit={handleSend}>
         <input

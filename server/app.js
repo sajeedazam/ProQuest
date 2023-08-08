@@ -13,7 +13,7 @@ var geocode = require('./routes/geocode');
 var app = express();
 
 const corsOptions = {
-  origin: "https://proquest.onrender.com", // Update with the deployed frontend URL
+  origin: 'http://localhost:3000', // Update with the deployed frontend URL
 };
 
 app.use(cors(corsOptions));
@@ -45,7 +45,7 @@ server.listen(5002);
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://proquest.onrender.com", // Update with the deployed frontend URL
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });

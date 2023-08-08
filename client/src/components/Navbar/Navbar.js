@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import { connect } from 'react-redux';
 import { clearUser } from "../../redux/userActions";
 import Cart from '../Cart/cart';
+import '../Navbar/Navbar.css'
 
 function NavBar({ clearUser }) {
     const [displayName, setDisplayName] = useState("Guest");
@@ -32,12 +33,12 @@ function NavBar({ clearUser }) {
     return (
         <nav className="navbar">
             <div>
-              <div>Signed in as: {displayName}</div>
+              <div className="user-display">Signed in as: {displayName}</div>
               <Cart />
             </div>
             <Link className="nav-link" to="/" onClick={logout}>Logout</Link>
         </nav>
-    )
+    );
 }
 
 const mapDispatchToProps = dispatch => ({
