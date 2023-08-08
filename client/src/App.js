@@ -19,9 +19,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-modal';
 
-const stripePromise = loadStripe('pk_test_51NbH0oD8wtfz1dRK1wDw3n8ziesmlB2h1vutlWQjhnyAAIVfYAUbAk5LbJR4dnn99OD0JIdGzEMCYld4ZWxS9NgS00ErzV8MbK'); 
+const stripePromise = loadStripe('pk_test_51NbH0oD8wtfz1dRK1wDw3n8ziesmlB2h1vutlWQjhnyAAIVfYAUbAk5LbJR4dnn99OD0JIdGzEMCYld4ZWxS9NgS00ErzV8MbK');
 
-Modal.setAppElement('#root'); 
+Modal.setAppElement('#root');
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
             <Route path="/auth" element={<AuthDetails />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/professional" element={<ProfessionalHomescreen />} />
-            <Route path="/cart" element={<CartPage/>} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/chat" element={<Chat />} />
           </Routes>
         </div>

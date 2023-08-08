@@ -1,59 +1,57 @@
-/* PaymentForm.css */
-
 .payment-modal-content {
-    background-color: #f4f4f4;
-    margin: auto;
-    padding: 20px;
-    width: 400px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.1);
-  }
-  
-  h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .StripeElement {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #444;
-  }
-  
-  button[type="submit"] {
-    margin-top: 20px;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 10px;
-  }
-  
-  .close-button {
-    margin-top: 20px;
-    align-self: center;
-  }
+  background-color: #f4f4f4;
+  margin: auto;
+  padding: 20px;
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.StripeElement {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.close-button {
+  margin-top: 20px;
+  align-self: center;
+}

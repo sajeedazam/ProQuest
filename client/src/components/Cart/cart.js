@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
   return (
     <div className='cart-icon'>
-      {/* <img src={cart}  /> */}
       <Link to="/cart">
         <img src={cart} />
       </Link>

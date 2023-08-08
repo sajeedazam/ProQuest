@@ -100,14 +100,13 @@
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
-  width: 100%; 
+  width: 100%;
 }
 
 .pHomepage-jobs-container button:hover {
   background: linear-gradient(93deg, #FF6A88, #FF9D6C);
   transform: scale(1.05);
 }
-
 
 .jobs-section {
   flex: 1;

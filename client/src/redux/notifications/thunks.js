@@ -56,7 +56,6 @@ export const deleteCartItemAsync = createAsyncThunk(
     }
 );
 
-
 export const acceptAsync = createAsyncThunk(
     'ACCEPT',
     async (jobId) => {
@@ -134,7 +133,3 @@ export const getAmountAsync = createAsyncThunk(
         }
     }
 );
-
-
-
-

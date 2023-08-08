@@ -27,7 +27,7 @@ const Login = () => {
 
     return (
         <div className="login-homepage">
-            <Link to="/" className='back-button'> {"Home"} </Link>  
+            <Link to="/" className='back-button'> {"Home"} </Link>
             <div className="login-logo-container">
                 <img src={logo} alt="Logo" />
             </div>
@@ -41,10 +41,10 @@ const Login = () => {
                     <Form.Group className="login-title1 no-border mx-auto" controlId="formBasicPassword" style={{ marginBottom: '10px' }}>
                         <Form.Control type="password" name='password' placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className='login-input-box' />
                     </Form.Group>
-                    <button className={`login-ant-btn ${isHovered ? 'button-hovered' : 'button'}`} 
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}
-                            type="submit">
+                    <button className={`login-ant-btn ${isHovered ? 'button-hovered' : 'button'}`}
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        type="submit">
                         Submit
                     </button>
                 </form>

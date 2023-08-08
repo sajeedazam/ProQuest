@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import "./LoginProfessional.css";
 import logo from "../../proquest-logo-1.png";
@@ -26,7 +26,7 @@ const LoginProfessional = () => {
 
     return (
         <div className="loginProfessionalContainer">
-            <Link to="/" className='back-button-pro'> {"Home"} </Link>  
+            <Link to="/" className='back-button-pro'> {"Home"} </Link>
             <section className='loginProfessionalSection'>
                 <div className="loginProfessionalLeftData">
                     <h3 className='loginProfessionalTitle'>Sign In As Professional</h3>
