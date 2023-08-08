@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import { connect } from 'react-redux';
 import { clearUser } from "../../redux/userActions";
 import Cart from '../Cart/cart';
+import "../Navbar/Navbar.css";
 
 function NavBar({ clearUser }) {
     const [displayName, setDisplayName] = useState("Guest");
