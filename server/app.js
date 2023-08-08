@@ -10,8 +10,7 @@ var geocode = require('./routes/geocode');
 var app = express();
 
 const corsOptions = {
-  origin: "https://proquest.onrender.com", 
-  
+  origin: "https://proquest.onrender.com",
 };
 app.use(cors(corsOptions));
 app.use(logger('dev'));
