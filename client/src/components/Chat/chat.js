@@ -5,7 +5,7 @@ import { auth } from '../firebase';
 // const ENDPOINT = 'https://localhost:3003';
 // var socket;
 // const socket = io('https://proquest-server.onrender.com');
-const socket = io('http://localhost:3003');
+const socket = io('https://proquest-chat-server.onrender.com');
 // Create a socket instance
 // Make sure to replace this with your server URL
 
