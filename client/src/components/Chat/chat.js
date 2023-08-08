@@ -42,7 +42,7 @@ function Chat() {
     const authUser = auth.currentUser;
 
     if (authUser && newMessage.trim() !== '') {
-      socket.emit('message', { user: authUser.displayName, message: newMessage });//authUser.email
+      socket.emit('message', { user: authUser.displayName, message: newMessage });
       setNewMessage('');
     }
   };
