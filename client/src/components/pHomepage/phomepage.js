@@ -78,7 +78,7 @@ function ProfessionalHomescreen() {
         </span>
 
         <h1 className="pHomepage-title">Logged in as a professional</h1>
-        <h2 className="pHomepage-info">Professional Name: Dunder Mifflin</h2>
+        <h2 className="pHomepage-info">Professional Name: {auth.currentUser.displayName}</h2>
         <h2 className="pHomepage-info">Location of the Professional: Vancouver, Canada</h2>
         <h2 className="pHomepage-info">Amount earned: ${
           earnedAmount?.count || 0
