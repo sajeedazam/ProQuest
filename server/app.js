@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cors = require('cors');
 var http = require('http');
 var mongoose = require('mongoose');
+require('dotenv').config();
 
 var jobsRouter = require('./routes/jobList');
 var cartRouter = require('./routes/cart');
@@ -14,8 +15,8 @@ var app = express();
 
 const corsOptions = {
   origin: "https://proquest.onrender.com", // Update with the deployed frontend URL
+  
 };
-
 app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
@@ -41,12 +42,13 @@ var messageSchema = mongoose.Schema({
 var Message = mongoose.model('Message', messageSchema);
 
 const server = http.Server(app);
-server.listen(5002);
+server.listen(process.env.CHAT_PORT);
 
 const io = require("socket.io")(server, {
   cors: {
     origin: "https://proquest.onrender.com", // Update with the deployed frontend URL
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    setTimeout: 60000
   }
 });
 
@@ -60,6 +62,7 @@ io.on('connection', async function (socket) {
   process.nextTick(() => {
     socket.on('message', function (data) {
       console.log("Message from:", data.user, "Message:", data.message);
+
       var newMessage = new Message({ user: data.user, message: data.message });
     
       try {
@@ -71,6 +74,7 @@ io.on('connection', async function (socket) {
       }
     });
   });
+
 });
 
 module.exports = app;
