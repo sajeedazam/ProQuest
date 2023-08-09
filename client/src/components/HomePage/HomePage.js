@@ -5,8 +5,8 @@ import City from '../City/city';
 
 const HomePage = () => {
   return (
-    <div className="homepage">
-      <div className="content-container">
+    <div className="homepage-pq">
+      <div className="content-container-pq">
         <h3>Welcome to ProQuest</h3>
         <City />
         <div>

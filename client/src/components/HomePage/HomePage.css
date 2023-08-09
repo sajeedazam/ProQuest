@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
-.homepage {
+.homepage-pq {
   display: flex;
   height: 100vh;
   width: 100vw;
   background: url('pq-homepage1.jpg') no-repeat;
-  background-size: cover;
+  background-size:cover;
   background-position-x: -175px;
 }
 
-.content-container {
+.content-container-pq {
   background-color: rgba(0, 0, 0, 0.7);
   width: 20%;
   margin-left: auto;
@@ -21,28 +21,28 @@
   color: white;
 }
 
-.content-container h3 {
+.content-container-pq h3 {
   font-family: 'Source Code Pro', monospace;
   font-size: 30px;
   text-align: center;
   color: white;
 }
 
-.content-container p {
+.content-container-pq p {
   margin: 20px 0;
   font-size: 20px;/* Increased font-size */
   font-weight: bold;/* Make the text bold */
 }
 
-.content-container input,
-.content-container button {
+.content-container-pq input,
+.content-container-pq button {
   padding: 12px;/* Increased padding */
   font-size: 18px;/* Increased font-size */
   width: 100%;
   margin-bottom: 10px;
 }
 
-.homepage .ant-btn {
+.homepage-pq .ant-btn {
   color: #FFF;/* Make the button text white */
   background-color: #222;/* Darker background */
   border: none;
@@ -59,12 +59,12 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);/* Add some shadow to make the buttons "pop" */
 }
 
-.homepage .ant-btn:hover {
+.homepage-pq .ant-btn:hover {
   background-color: #333;/* Slightly lighter on hover */
   transform: scale(1.1);/* Scale up when hovered */
 }
 
-.homepage input[type='text'] {
+.homepage-pq input[type='text'] {
   padding: 10px;
   width: 100%;
   border: 1px solid #333;
@@ -74,7 +74,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);/* Add some shadow to make the input "pop" */
 }
 
-.homepage input[type='text']:focus {
+.homepage-pq input[type='text']:focus {
   border-color: #555;
   outline: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add some shadow to make the input "pop" when focused */

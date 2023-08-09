@@ -4,7 +4,8 @@
   display: flex;
   height: 100vh;
   width: 100vw;
-  background: url('https://images5.alphacoders.com/552/552426.jpg');
+  /* background: url('https://images5.alphacoders.com/552/552426.jpg'); */
+  background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapers.com%2Fwallpapers%2Fsolid-background-monochromic-gray-gradient-umlsiq0qgpr7cu6r.html&psig=AOvVaw1OX7pZt2dMdz39p_ArVpxp&ust=1691657909035000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIDF7oSbz4ADFQAAAAAdAAAAABAE');
   background-size: cover;
 }
 
