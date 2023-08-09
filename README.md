@@ -87,3 +87,9 @@ Welcome to ProQuest – the irresistible online application designed for househo
     - Handled the mongoose queries to extract data from the mongoDB database, notably worked with transfering data between collections and also used aggregate sum to update professional earnings.
     - Implemented the responsive customer login page and handled the client-side(react) routing and backend server routes including the implementations for GET/POST/DELETE methods.
     - Assisted in deploying the socket.io based chat function to the website, and also contributed in debugging few essential functionality.
+- Rahul Kumar Sinha, CSID: h9c3z
+    - Worked on creating react pages and components and converted the website from single page to multiple pages.
+    - Implementated firebase for account creation for customers and professional.
+    - Implemented the backend for the professional to handle jobs from the customers and also handled CRUD operations on the professional side of the website. 
+    - Setup express and implemented the logic to connect the customers and professional.
+    - Used socket.io (maintains bidirectional conection) to develope the chat feature and stored the chat history in mongoDB. 
