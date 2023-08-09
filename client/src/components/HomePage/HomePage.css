@@ -77,5 +77,5 @@
 .homepage-pq input[type='text']:focus {
   border-color: #555;
   outline: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add some shadow to make the input "pop" when focused */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add some shadow to make the input "pop" when focused*/
 }
